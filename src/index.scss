@@ -1,0 +1,46 @@
+@import url(../src/vendors/normalize.css);
+@import url(../src/vendors/fonts.css);
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Circe', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--dark-default);
+}
+
+:root {
+
+  /*СИНИЕ*/
+  --primary-default: #2D8BF1;
+  --primary-hovered: #106CD1;
+  --primary-onclick: #0C5FBA;
+  --primary-disabled: #9CCBFF;
+
+  /*ЖЕЛТЫЕ*/
+  --accent-default: #DAE856;
+  --accent-hovered: #CADF00;
+  --accent-onclick: #BED200;
+  --accent-disabled: #F0F0F4;
+
+  /*ЦВЕТ ТЕКСТА - ЧЕРНЫЙ*/
+  --dark-default: #201E33;
+  --dark-hovered: #605D7C;
+  --dark-onclick: #201E33;
+  --dark-disabled: #D3D3DA;
+
+  /*ЦВЕТ ТЕКСТА - БЕЛЫЙ */
+  --light-default: #F6F6F7;
+  --light-hovered: #F0F0F4;
+  --light-onclick: #FFFFFF;
+  --light-disabled: #DFDFDF;
+
+
+  --transition-duration: 0.4s;
+  --transition-timing: ease-in-out;
+
+  --cursor-element: url(./images/cursor/Cursor-Hand.svg);
+}

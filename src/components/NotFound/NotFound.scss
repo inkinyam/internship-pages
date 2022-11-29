@@ -1,0 +1,32 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: 150px;
+
+  &__text {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  &__stepBack {
+    width: 200px;
+    height: 44px;
+    text-decoration: none;
+    background-color: rgb(0, 204, 255);
+    line-height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    margin-top: 40px;
+  }
+}

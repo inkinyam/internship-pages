@@ -1,0 +1,97 @@
+.header {
+  width: 100%;
+  height: 95px;
+  background-color: #fff;
+  box-shadow: 0px 27px 60px rgba(131, 139, 163, 0.15), 
+              0px 9.85544px 21.901px rgba(131, 139, 163, 0.09),
+              0px 4.78464px 10.6325px rgba(131, 139, 163, 0.07), 
+              0px 2.34552px 5.21226px rgba(131, 139, 163, 0.07), 
+              0px 0.927421px 2.06094px rgba(131, 139, 163, 0.06);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .header__wrapper {
+    max-width: 1440px;
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__logo {
+    width: 74px;
+    height: 74px;
+
+    &:hover {
+      cursor: var(--cursor-element),pointer;
+    }
+  }
+
+  .header__search {
+    border: none;
+    background-color: transparent;
+
+    i {
+      font-size: 20px;
+      transition: color var(--transition-duration) var(--transition-timing);      
+    }
+
+    &:hover {
+      cursor: var(--cursor-element),pointer;
+
+      i {
+        color: var(--primary-default);
+      }
+    }
+  }
+
+  .header__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 40px;
+  }
+
+  .header__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--dark-default);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    &:hover {
+      color: var(--primary-default);
+      cursor: var(--cursor-element),pointer;
+      transition: color var(--transition-duration) var(--transition-timing);      
+    }
+  }
+
+  .header__link-group {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--dark-default);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      color: var(--primary-default);
+      cursor: var(--cursor-element),pointer;
+      transition: color var(--transition-duration) var(--transition-timing);      
+    }
+  }
+
+
+}
