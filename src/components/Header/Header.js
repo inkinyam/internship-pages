@@ -11,14 +11,14 @@ const Header = () => {
         </Link>
       
 
-        <nav className='header__nav'>
+        <section className='header__nav'>
           <Link className='header__link' to='#' rel="noreferrer">Институт</Link>
           <Link className='header__link' to='#' rel="noreferrer">Проекты</Link>
           <Link className='header__link' to='#' rel="noreferrer">Услуги</Link>
           <Link className='header__link' to='#' rel="noreferrer">Журнал</Link>
           <Link className='header__link' to='#' rel="noreferrer">Контакты</Link>
           <button className='header__link-group'>Спецпроекты <i className='bi bi-chevron-down'></i></button>
-        </nav>
+        </section>
 
         <button className='header__search'>
           <i className='bi bi-search'></i>

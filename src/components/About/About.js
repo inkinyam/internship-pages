@@ -2,7 +2,43 @@ import './About.scss';
 
 const About = () => {
   return (
-    <section>
+    <section className='about'>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
+        <p>HELLO FROM ABOUT</p>
         <p>HELLO FROM ABOUT</p>
 
     </section>
