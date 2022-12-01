@@ -1,19 +1,25 @@
-import Header from '../Header/Header';
 import Lead from '../Lead/Lead';
-import Navigation from '../Navigation/Navigation';
+
 import About from '../About/About';
+import Layout from '../Layout/Layout';
+
+import Works from '../Works/Works';
+
 
 import './Main.scss';
 
 const Main = () => {
   return (
     <>
-      <Header/>
       <main className='main'>
-        <Lead/>
+        <Lead />
 
-        <Navigation isFixed = {true}/>
-        <About/>
+        <About />
+        <Layout/>
+
+        <Works />
+
+
       </main>
     </>
   )

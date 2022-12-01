@@ -1,7 +1,31 @@
 .layout {
   position: relative;
-  background-color: hotpink;
   width: 100%;
-  height: auto
-  ;
+  overflow: hidden;
+  height: auto;
+}
+
+
+.layout__figure {
+  width: 2040px;
+  height: 2040px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 225deg at 50% 50%, #DAE856 0deg, #E3E3E3 360deg);
+  z-index: 1;
+  animation: bganimation 60s linear infinite forwards;
+}
+
+
+@keyframes bganimation {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

@@ -1,15 +1,24 @@
 @import url(../src/vendors/normalize.css);
 @import url(../src/vendors/fonts.css);
+@import url(../src/utils/animation.scss);
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 
 
+html {
+/*    cursor: none;  */ 
+   a {
+    cursor: none;
+   }
+
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Circe', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--dark-default);
+  position: relative;
 }
 
 :root {
@@ -27,9 +36,9 @@ body {
   --accent-disabled: #F0F0F4;
 
   /*ЦВЕТ ТЕКСТА - ЧЕРНЫЙ*/
-  --dark-default: #201E33;
+  --dark-default: #1B1B1B;
   --dark-hovered: #605D7C;
-  --dark-onclick: #201E33;
+  --dark-onclick: #1B1B1B;
   --dark-disabled: #D3D3DA;
 
   /*ЦВЕТ ТЕКСТА - БЕЛЫЙ */
@@ -41,6 +50,4 @@ body {
 
   --transition-duration: 0.4s;
   --transition-timing: ease-in-out;
-
-  --cursor-element: url(./images/cursor/Cursor-Hand.svg);
 }

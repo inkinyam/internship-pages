@@ -1,8 +1,6 @@
 import "./Navigation.scss";
 import { Link, NavLink } from "react-router-dom";
-
-
-
+import logo from '../../images/logo.svg'
 const Navigation = ({isFixed}) => {
 
   const navigationClassNames = isFixed ? 'navigation navigation_color_black' : 'navigation navigation_color_white';
@@ -11,7 +9,9 @@ const Navigation = ({isFixed}) => {
   return (
     <section className={navigationClassNames}>
       <div className="navigation__container">
-        <Link to='/form' className="navigation__link navigation__button"> Подать заявку</Link>
+        <Link to='genplanmos.ru' className="navigation__logo "> 
+          <img src={logo} alt="логотип"/>
+        </Link>
         <nav className="navigation__list">
           <NavLink to="/about" className={linkClassNames}>Как проходит</NavLink> 
           <NavLink to="/lead" className={linkClassNames}>Для кого</NavLink> 

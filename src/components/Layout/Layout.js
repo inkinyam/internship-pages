@@ -1,11 +1,16 @@
 import './Layout.scss';
+import Video from '../Video/Video';
+import Phases from '../Phases/Phases';
 
 
 const Layout = () => {
   return (
-    <>
-    hello from Layout
-    </>
+    <div className='layout'>
+        <div className="layout__figure"></div>
+
+    <Video/>
+    <Phases/>
+    </div>
   )
 }
 

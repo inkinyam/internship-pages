@@ -1,0 +1,17 @@
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  mix-blend-mode: exclusion;
+  background-color: #fff;
+  z-index: 10000;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(1);
+
+}
+
+.cursor_hidden {
+  transform: scale(0.01);
+}
