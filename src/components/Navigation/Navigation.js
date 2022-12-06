@@ -1,25 +1,33 @@
 import "./Navigation.scss";
-import { Link, NavLink } from "react-router-dom";
-import logo from '../../images/logo.svg'
-const Navigation = ({isFixed}) => {
+import { Link } from "react-router-dom";
+import logo from '../../images/logo.svg';
+
+import NavBar from "../Navbar/Navbar";
+
+
+const Navigation = ({isFixed, onCursorButtonEnter, onCursorDefault}) => {
+
+
+  const onButtonHoverCursor = () => {
+    onCursorButtonEnter();
+  }
+  
+  const onCursorLeave = () => {
+    onCursorDefault();
+  }
+
 
   const navigationClassNames = isFixed ? 'navigation navigation_color_black' : 'navigation navigation_color_white';
-  const linkClassNames = ({isActive}) => isActive ? 'navigation__link  navigation__link_active' : 'navigation__link';
+
 
   return (
     <section className={navigationClassNames}>
       <div className="navigation__container">
-        <Link to='genplanmos.ru' className="navigation__logo "> 
+        <Link to='genplanmos.ru' className="navigation__logo " onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> 
           <img src={logo} alt="логотип"/>
         </Link>
-        <nav className="navigation__list">
-          <NavLink to="/about" className={linkClassNames}>Как проходит</NavLink> 
-          <NavLink to="/lead" className={linkClassNames}>Для кого</NavLink> 
-          <NavLink to="/phases" className={linkClassNames}>Сроки и этапы</NavLink> 
-          <NavLink to="/howitwas" className={linkClassNames}>Стажировка 2021</NavLink> 
-          <NavLink to="/howitwas" className={linkClassNames}>Стажировка 2022</NavLink> 
-          <NavLink to="/programm" className={linkClassNames}>Программы</NavLink> 
-        </nav>
+       <NavBar onCursorButtonEnter = {onCursorButtonEnter} 
+               onCursorDefault = {onCursorDefault}/>
       </div>
     </section>
   )

@@ -139,26 +139,42 @@
         text-transform: uppercase;
         font-weight: 700;
         font-size: 150px;
-        line-height: 155px;
+        line-height: 150px;
         color: var(--light-onclick); 
         z-index: 4;
         margin: 0;
-        max-width: 90%;
-         grid-column-start:1;
-        grid-column-end: 7;
+        grid-column-start:1;
+        grid-column-end: 8;
         grid-row-start: 1;
         grid-row-end: 3; 
+        display: inline ;
+
+
+        @media screen and (max-width: 1350px) {
+          font-size: 130px;
+          line-height: 135px;
+        }
+
+        @media screen and (max-width: 1070px) {
+          font-size: 100px;
+          line-height: 105px;
+        }
+
+        @media screen and (max-width:820px) {
+          font-size: 55px;
+          line-height: 60px;
+        }
       }
     
       .lead__button {
-        position: relative;
-        z-index: 6;
+        display: inline-block;
         width: 196px;
         height: 44px;
         min-height: 44px;
         background-color: var(--accent-default);
         color: var(--dark-default);
         font-style: normal;
+        text-transform:initial;
         font-weight: 400;
         font-size: 19px;
         line-height: 44px;
@@ -166,15 +182,13 @@
         text-align: center;
         transition: color, background-color var(--transition-duration) var(--transition-timing);
         padding: 0;
-        margin: 0;
-
-       margin-top: 40px;
-        grid-column-start:4;
+        margin: 0 0 0 30px;
+/*      grid-column-start:4;
         grid-column-end: 6;
         grid-row-start: 2;
         grid-row-end: 3;
         align-self:center;
-        justify-self: center; 
+        justify-self: center;  */
     
         &:hover {
           background-color: var(--accent-hovered);

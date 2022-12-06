@@ -2,12 +2,23 @@ import './Lead.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
-const Lead = () => {
+const Lead = ({onCursorButtonEnter, onCursorDefault}) => {
 
+
+const onButtonHoverCursor = () => {
+  onCursorButtonEnter();
+}
+
+const onCursorLeave = () => {
+  onCursorDefault();
+}
 
   return (
     <section className='lead' >
-      <Navigation isFixed = { false }/>
+      <Navigation isFixed = { false }
+                  onCursorButtonEnter = {onCursorButtonEnter} 
+                  onCursorDefault = {onCursorDefault}
+        />
       <div className='lead__bg'>
         <div className='lead__big'></div>
         <div className='lead__middle r1'></div>
@@ -18,8 +29,11 @@ const Lead = () => {
       </div>
       <div className='lead__content'>
         
-          <h1 className='lead__title'>Практика <br/> в Институте Генплана Москвы</h1>
-          <Link to="/form" className='lead__button'> Заполнить заявку</Link>
+          <h1 className='lead__title'>Практика <br/> в&nbsp;Институте Генплана Москвы
+
+          <Link to="/form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link>
+          </h1>
+          
 
       
         <div className="lead__startpoint"></div>
