@@ -5,7 +5,7 @@ import logo from '../../images/logo.svg';
 import NavBar from "../Navbar/Navbar";
 
 
-const Navigation = ({isFixed, onCursorButtonEnter, onCursorDefault}) => {
+const Navigation = ({onCursorButtonEnter, onCursorDefault}) => {
 
 
   const onButtonHoverCursor = () => {
@@ -17,17 +17,14 @@ const Navigation = ({isFixed, onCursorButtonEnter, onCursorDefault}) => {
   }
 
 
-  const navigationClassNames = isFixed ? 'navigation navigation_color_black' : 'navigation navigation_color_white';
-
-
   return (
-    <section className={navigationClassNames}>
+    <section className="navigation">
       <div className="navigation__container">
         <Link to='genplanmos.ru' className="navigation__logo " onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> 
           <img src={logo} alt="логотип"/>
         </Link>
        <NavBar onCursorButtonEnter = {onCursorButtonEnter} 
-               onCursorDefault = {onCursorDefault}/>
+               onCursorDefault     = {onCursorDefault}/>
       </div>
     </section>
   )

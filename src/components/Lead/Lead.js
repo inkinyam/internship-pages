@@ -29,10 +29,14 @@ const onCursorLeave = () => {
       </div>
       <div className='lead__content'>
         
-          <h1 className='lead__title'>Практика <br/> в&nbsp;Институте Генплана Москвы
-
-          <Link to="/form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link>
-          </h1>
+          <div className='lead__title'>
+            <h1>Практика</h1> 
+            <span>
+              <p>в&nbsp;Институте</p>
+              <p>Генплана</p>   
+              <p>Москвы <Link to="/form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link></p>
+            </span>
+          </div>
           
 
       

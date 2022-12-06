@@ -1,192 +1,159 @@
 .navbar {
-  display: flex;
-  flex-direction: row;  
-  align-items: center;
 
-  @media screen and (max-width: 960px) {
-    width: 100%;
-    justify-content: flex-end;
+  @media screen and (max-width: 1020px) {
+    width: 100%;     
   }
 }
 
 .navbar__list {
-  display: none;
+  display: flex;
   flex-direction: row;
-  align-items: center;
   column-gap: 40px;
 
-  @media screen and (max-width: 800px) {
-    flex-direction: column;  
-  }
-}
-
-.navbar__link {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 19px;
-  line-height: 24px;
-  text-decoration: none;
-  position: relative;
-  transition: color var(--transition-duration) var(--transition-timing);
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    height: 2px;
-    width: 0;
-    transition: width 0s var(--transition-timing), background-color var(--transition-duration) var(--transition-timing);
+  @media screen and (max-width: 1150px) {
+    column-gap: 20px;
   }
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -2px;
-    height: 2px;
-    width: 0;
-    background-color: var(--accent-default);
-    transition: width var(--transition-duration) var(--transition-timing);
-  }
-
-  &:hover {
-  
-    &::before {
-      width: 100%;
-      background-color: var(--accent-default);
-      transition: width var(--transition-duration) var(--transition-timing);
-    }
-    &::after {
-      width: 100%;
-      background: transparent;
-      transition: all 0s var(--transition-timing);
-     }
-  }
-
-  img {
-    color: white;
-  }
-}
-
-
-
-.navigation_color_white {
-  .navigation__container {
-    z-index: 2;
-  }
-  .navbar__link {
-    color: var(--light-default);
-   
-    &:hover {
-      color: var(--accent-hovered);
-    }
-  }
-  .navbar__button {
-    color: var(--accent-default);
-    &:hover {
-      color: var(--accent-hovered);
-     
-    }
-    &:active {
-      color: var(--accent-onclick);
-    }
-  }
-}
-
-
-.navigation_color_black {
-  position: sticky;
-  top: 0;
-  padding: 20px 0;
-  background-color: rgb(255, 255, 255);
-
-  .navbar__link {
-    color:var(--dark-default);
-  
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      height: 2px;
-      width: 0;
-      transition: width 0s var(--transition-timing), background-color var(--transition-duration) var(--transition-timing);
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      right: 0;
-      bottom: -2px;
-      height: 2px;
-      width: 0;
-      background-color: var(--primary-default);
-      transition: width var(--transition-duration) var(--transition-timing);
-    }
-
-    &:hover {
-      color: var(--dark-hovered);
-    
-      &::before {
-        width: 100%;
-        background-color: var(--primary-default);
-        transition: width var(--transition-duration) var(--transition-timing);
-      }
-
-      &::after {
-        width: 100%;
-        background: transparent;
-        transition: all 0s var(--transition-timing);
-       }
-    }
-  }
-}
-
-.navbar__burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 40px;
-  height: 12px;
-
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0 0 0  40px;
-  
-
-  .line {
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    transition: all   var(--transition-duration) var(--transition-timing);
-  }
-
-  @media screen and (min-width: 960px) {
+  @media screen and (max-width: 1020px) {
     display: none;
   }
 }
 
+.navbar__link {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24px;
+  color: var(--light-default);
+  text-decoration: none;
+  position: relative;
 
-.navbar_active {
-  .navbar__list {
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-default);
+    transition: width 0.4s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.navbar__mobile {
+  display: none;
+  width: 100%;
+ 
+  align-items: center;
+
+  
+  @media screen and (max-width:1020px) {
+    display: flex;     
+  }
+}
+
+.navbar__logo {
+  width: 80px;
+  height: 80px;
+}
+
+.navbar__burger {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 12px;
+  margin-left: auto;
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transition: transform 0.4s ease-in-out;
+  }
+}
+
+.navbar__mobile-menu {
+  position: fixed;
+  min-width: 0;
+  width: 0;
+  height: 0;
+  top: 110px;
+  bottom: 110px;
+  left: -100%;
+  visibility: hidden;
+  opacity: 0;
+
+  background-color:var(--dark-default);
+  height: 100%;
+  width: 100%;
+ 
+}
+
+.navbar__mobile-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 15px;
+  margin-top: 20vh;
+
+ 
+  .navbar__link {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+  }
+
+  &:nth-of-type(2) {
+
+    margin-bottom: 40px;
+    flex-direction: row;
+    column-gap: 20px;
+
+    .navbar__link {
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+  }
+}
+
+.navbar__mobile_active {
+  .navbar__mobile-menu {
+    z-index: 100;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+
+    transition: all 0.6s ease-in-out;
+    
+
     display: flex;
+    flex-direction: column;
   }
 
   .navbar__burger {
-    .line {
-        &.top {
-          transform: rotate(45deg) translate(-2px, 0px);
-        }
+    .line.top {
+      transform: rotate(45deg) translate(6px, 5px);
+    }
 
-        &.bottom {
-          transform: rotate(-45deg) translate(5px, -10px);
-        }
+    .line.bottom {
+      transform: rotate(-45deg) translate(5px, -2px);
     }
   }
+
+
 }

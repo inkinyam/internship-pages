@@ -1,12 +1,18 @@
 .card {
-  flex-basis: calc(50% - 12px);
+  flex-basis: calc(50% - 14px);
   min-height: 240px;
+  max-height: 440px;
   position: relative; 
   box-sizing: border-box;
   padding: 16px 24px 0 0;
   display: flex;
   flex-direction: column;
   z-index: 3;
+
+  @media screen and (max-width: 776px) {
+    flex-basis: 100%
+    
+  }
 
     
   &:before {
@@ -58,4 +64,25 @@
     min-height: 80px;
     margin-bottom: 16px;
   }
+}
+
+.card__picture_hidden {
+  display: none;
+}
+
+.card__picture {
+  width: 240px;
+  height: 125px;
+  margin-top: auto;
+  object-fit: cover;
+  object-position: center;
+  display: flex;
+  order: 5;
+  align-self: flex-end;
+  justify-self: flex-end;
+
+}
+
+.card:has(.card__description_first) {
+  height: 400px;
 }

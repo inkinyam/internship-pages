@@ -1,256 +1,237 @@
-.lead{
+.lead {
   width: 100%;
   height: 100vh;
-  max-height: 1100px;
-  background-color: #1B1B1B;
+  background-color: var(--dark-default);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 130px 1fr;
   overflow: hidden;
+}
+
+.lead__bg {
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
   position: relative;
+
+
+  .lead__big {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 1700px;
+    height: 1700px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+    filter: blur(120px);
+    animation: bigRoundAnimation 80s ease infinite forwards;
+    transform-origin: center center;
+  }
+
+  .lead__middle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+  
+    /*левый*/
+    &.r1 {
+      top: 50%;
+      left: 0;
+      background: radial-gradient(50% 50% at 50% 50%, #3181d6 0%, #042547 63.54%, #000000 100%);
+      filter: blur(100px);
+
+      transform-origin: 200px 300px;
+      animation: middleLeftRoundAnimation 40s ease-in-out infinite forwards;
+    }
+
+  /*правый*/
+    &.r2 {
+      top: 40%;
+      left: 40%;
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: small2RoundAnimation 40s cubic-bezier(0.075, 0.82, 0.465, 1) infinite alternate;
+    }
+
+    &.r3 {
+      top: 10%;
+      left: 10%;
+      transform-origin: 50px 40px;
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
+    }
+
+    &.r4 {
+      top: 58%;
+      left: 0;
+
+      transform-origin: 22px;
+
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
+    }
+  }
+
+  .lead__small {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #0C5FBA 0%, #09488D 63.54%, #000000 100%);
+    filter: blur(100px);
+    transform-origin: 60% 60%;
+    animation: smallRoundAnimation 30s ease-in-out infinite forwards;
+  }
+}
+
+.lead__content {
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 2;
+  width: 90%;
+  margin: 0 auto;
+  height: 90%;
 
   display: flex;
   flex-direction: column;
+}
 
+.lead__title {
+  margin-top:auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
 
-
-    .lead__bg {
-      top: 0;
-      left: 0;
-      position: absolute;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-
-      .lead__big {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0;
-        width: 1700px;
-        height: 1700px;
-        border-radius: 50%;
-        background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
-        filter: blur(120px);
-        animation: bigRoundAnimation 80s ease infinite forwards;
-        transform-origin: center center;
-      }
-
-      .lead__middle {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 0;
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
+  span {
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 776px) {
+      column-gap: 5px;
+      margin: 5px 0 0 ;
       
-        /*левый*/
-        &.r1 {
-          top: 50%;
-          left: 0;
-          background: radial-gradient(50% 50% at 50% 50%, #3181d6 0%, #042547 63.54%, #000000 100%);
-          filter: blur(100px);
-    
-          transform-origin: 200px 300px;
-          animation: middleLeftRoundAnimation 40s ease-in-out infinite forwards;
-        }
-
-      /*правый*/
-        &.r2 {
-          top: 40%;
-          left: 40%;
-          background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
-          filter: blur(60px);
-          transform: rotate(-90deg);
-          animation: small2RoundAnimation 40s cubic-bezier(0.075, 0.82, 0.465, 1) infinite alternate;
-        }
-
-        &.r3 {
-          top: 10%;
-          left: 10%;
-          transform-origin: 50px 40px;
-          background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
-          filter: blur(60px);
-          transform: rotate(-90deg);
-          animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
-        }
-
-        &.r4 {
-          top: 58%;
-          left: 0;
-
-          transform-origin: 22px;
-
-          background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
-          filter: blur(60px);
-          transform: rotate(-90deg);
-          animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
-        }
-      }
-
-      .lead__small {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin: 0;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(50% 50% at 50% 50%, #0C5FBA 0%, #09488D 63.54%, #000000 100%);
-        filter: blur(100px);
-        transform-origin: 60% 60%;
-        animation: smallRoundAnimation 30s ease-in-out infinite forwards;
-      }
     }
-
-
-    .lead__content {
-      width: 90%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 3fr 1fr 1fr;
-      position: relative;
-
-          
-      &::before {
-        position: absolute;
-        bottom: 45px;
-        left: 35%;
-  
-        height: 2px;
-        background-color: #fff;
-        content: '';
-        animation: leadBottomLine 1s ease forwards;
-      }
-
-      &::after {
-        position: absolute;
-        bottom: 45px;
-        right: 0;
-        width: 2px;
-        background-color: #fff;
-        content: '';
-
-        animation: leadRightLine 1s ease-in 1s forwards;
-      }
-
-      .lead__title {
-        text-align: left;
-        font-style: normal;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 150px;
-        line-height: 150px;
-        color: var(--light-onclick); 
-        z-index: 4;
-        margin: 0;
-        grid-column-start:1;
-        grid-column-end: 8;
-        grid-row-start: 1;
-        grid-row-end: 3; 
-        display: inline ;
-
-
-        @media screen and (max-width: 1350px) {
-          font-size: 130px;
-          line-height: 135px;
-        }
-
-        @media screen and (max-width: 1070px) {
-          font-size: 100px;
-          line-height: 105px;
-        }
-
-        @media screen and (max-width:820px) {
-          font-size: 55px;
-          line-height: 60px;
-        }
-      }
-    
-      .lead__button {
-        display: inline-block;
-        width: 196px;
-        height: 44px;
-        min-height: 44px;
-        background-color: var(--accent-default);
-        color: var(--dark-default);
-        font-style: normal;
-        text-transform:initial;
-        font-weight: 400;
-        font-size: 19px;
-        line-height: 44px;
-        text-decoration: none;
-        text-align: center;
-        transition: color, background-color var(--transition-duration) var(--transition-timing);
-        padding: 0;
-        margin: 0 0 0 30px;
-/*      grid-column-start:4;
-        grid-column-end: 6;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        align-self:center;
-        justify-self: center;  */
-    
-        &:hover {
-          background-color: var(--accent-hovered);
-          color: var(--dark-hovered);
-        }
-        &:active {
-          background-color: var(--accent-onclick);
-          color: var(--dark-onclick);
-        }
-      }
-      
-      .lead__infoblock {
-        z-index: 5;
-        color: var(--light-onclick);
-
-        grid-column-start:1;
-        grid-column-end: 7;
-        grid-row-start: 3;
-        grid-row-end: 4;
-        align-self: flex-end;
-
-        .lead__info {
-          margin: 0 0 10px;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 22px;
-          line-height: 30px;
-          text-transform: uppercase;
-        }
-
-        .lead__prof {
-          margin: 0;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 26px;
-          text-transform: uppercase;
-        }
-      }
-
-      .lead__startpoint{
-        z-index: 5;
-        position: absolute;
-        bottom: 45px;
-        right: 0;
-       
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #ffffff;
-        transform: translate(4px, 4px);
-      }
-
-
-    }
-
-
-
-
-
   }
 
+  h1, p {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 150px;
+    line-height: 97.9%;
+    margin: 0;
+    color: var(--light-default);
+    text-transform: uppercase;
+    display: flex;
+
+    @media screen and (max-width: 1180px) {
+      font-size: 126px;
+    }
+
+    @media screen and (max-width: 990px) {
+      font-size: 100px;
+    }
+
+    @media screen and (max-width: 766px) {
+      flex-direction: column;
+    }
+  }
+
+  h1 {
+    @media screen and (max-width: 766px) {
+      font-size: 56px;
+    }
+  }
+
+  p {
+    @media screen and (max-width: 766px) {
+      font-size: 16px;
+      line-height: 112%;
+     }
+  }
+ 
+}
+
+.lead__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 196px;
+  height: 46px;
+  color: black;
+  background-color: var(--accent-default);
+
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24px;
+  text-transform:initial;
+  text-decoration: none;
+  align-self:flex-end;
+  margin-bottom: 31px;
+  margin-left: 40px;
+
+  @media screen and (max-width: 1180px) {
+    margin-bottom: 25px;
+  }
+
+  @media screen and (max-width: 990px) {
+    margin-bottom: 25px;
+  }
+
+  @media screen and (max-width: 766px) {
+    align-self:flex-start;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+}
+
+.lead__infoblock {
+  display: flex;
+  flex-direction: column;
+  color: var(--light-default);
+  
+
+  @media screen and (max-width: 766px) {
+    display: none;
+  }
+}
+
+.lead__info  {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.lead__prof {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  text-transform: uppercase;
+  margin: 0;
+}
 
 
 
@@ -259,3 +240,92 @@
 
 
 
+
+
+/*ШАРИКИ В ЛИДЕ*/
+@keyframes  bigRoundAnimation {
+  from {
+    transform: rotate(0) translate(-10%, -10%) ;
+  }
+
+  to {
+    transform: rotate(360deg) translate(-10%, -10%);
+  }
+  
+}
+
+@keyframes  middleLeftRoundAnimation {
+  0% {
+    transform: translate(0,-50%) rotate(0);
+  }
+
+  33% {
+    transform: translate(30%,-60%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(-45%,-50%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(0%,-50%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  middleRightRoundAnimation {
+  0% {
+    transform: translate(0,10%) rotate(0);
+  }
+
+  33% {
+    transform: translate(30%,30%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(45%,50%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(0%,10%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  smallRoundAnimation {
+  0% {
+    transform: translate(-40%,-30%) rotate(0);
+  }
+
+  33% {
+    transform: translate(-43%,-52%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(-30%,-42%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(-40%,-30%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  small2RoundAnimation {
+  0% {
+    transform: translate(-22%,-30%) rotate(0);
+  }
+
+  33% {
+    transform: translate(0,0) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(50%,22%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(-22%,-30%) rotate(-360deg);
+  }
+  
+}

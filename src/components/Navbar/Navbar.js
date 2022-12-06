@@ -2,10 +2,11 @@ import "./Navbar.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = ({onCursorButtonEnter, onCursorDefault}) => {
-  const [isOpenedNavBar, setIsOpenedNavbar] = React.useState(true);
+import logo from '../../images/logo.svg';
 
-  const navBarClassList = isOpenedNavBar ? 'navbar navbar_active' : 'navbar';
+const NavBar = ({onCursorButtonEnter, onCursorDefault}) => {
+const [isMovileMenuStation, setMobileMenuStation] = React.useState(false);
+let mobileMenuClassList = isMovileMenuStation? "navbar__mobile  navbar__mobile_active" : "navbar__mobile";
 
   const onButtonHoverCursor = () => {
     onCursorButtonEnter();
@@ -15,12 +16,13 @@ const NavBar = ({onCursorButtonEnter, onCursorDefault}) => {
     onCursorDefault();
   }
 
+
   const handleBurgerClick = () => {
-    setIsOpenedNavbar(!isOpenedNavBar);
+    setMobileMenuStation(!isMovileMenuStation);
   }
 
   return ( 
-    <div className={navBarClassList}>
+    <div className='navbar'>
       <nav className="navbar__list">
         <Link to="#about"    className='navbar__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Как проходит</Link> 
         <Link to="#phases"   className='navbar__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Сроки и этапы</Link> 
@@ -28,10 +30,32 @@ const NavBar = ({onCursorButtonEnter, onCursorDefault}) => {
         <Link to="#howitwas" className='navbar__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Стажировка 2021</Link> 
         <Link to="#programm" className='navbar__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Программы</Link> 
       </nav>
-      <button className="navbar__burger" onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave} onClick={handleBurgerClick}>
-        <span className="line top"></span>
-        <span className="line bottom"></span>
-      </button>
+
+      <div className={mobileMenuClassList}>
+        <Link to='genplanmos.ru' className="navbar__logo" onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> 
+          <img src={logo} alt="логотип"/>
+        </Link>
+        
+        <button className="navbar__burger" onClick={handleBurgerClick} onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>
+          <span className="line top"></span>
+          <span className="line bottom"></span>
+        </button>
+
+        <nav className="navbar__mobile-menu">
+          <div className="navbar__mobile-list">
+            <Link to="#about"    className='navbar__link'>Как проходит</Link> 
+            <Link to="#phases"   className='navbar__link'>Сроки и этапы</Link> 
+            <Link to="#howitwas" className='navbar__link'>Стажировка 2022</Link> 
+            <Link to="#howitwas" className='navbar__link'>2021</Link> 
+            <Link to="#programm" className='navbar__link'>Программы</Link> 
+          </div>
+
+          <div className="navbar__mobile-list">
+            <Link to="#" className='navbar__link'>Telegram</Link> 
+            <Link to="#" className='navbar__link'>Vkontakte</Link> 
+          </div>
+        </nav>
+      </div>
     </div>
 
 )
