@@ -1,0 +1,15 @@
+.slider {
+  position: relative;
+  height: 500px;
+  text-align: center;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.slider__img {
+  width: 866px;
+  height: 440px;
+  margin: auto;
+}

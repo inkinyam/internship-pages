@@ -5,9 +5,12 @@ import Lead from '../Lead/Lead';
 import About from '../About/About';
 import Layout from '../Layout/Layout';
 import Works from '../Works/Works';
+import AboutUs from '../AboutUs/AboutUs.js';
+import SMI from '../SMI/SMI';
 
 import React from 'react';
 import { motion } from "framer-motion";
+import eye from '../../images/eye.svg';
 
 const Main = () => {
   const [cursorVariant, setCursorVariant] = React.useState('default');
@@ -40,13 +43,25 @@ const Main = () => {
       width: 120,
       height: 120,
       opacity: 0.9,
-      transitionDuration: 0.2
+      transitionDuration: 0.2,
+    },
+    eye: {
+      x: mousePosition.x -47,
+      y: mousePosition.y -47,
+      width: 94,
+      height: 94,
+      backgoundColor: '#000',
+      mixBlendMode: 'unset',
+      borderStyle: 'solid',
+      borderWidth: 3,
+      borderColor: '#DAE856'
     }
   }
 
 
   const onCursorButtonEnter = () =>  setCursorVariant('button');
   const onCursorDefault = () => setCursorVariant('default');
+  const onCursorCardEnter = () => setCursorVariant('eye');
 
 
   return (
@@ -64,7 +79,10 @@ const Main = () => {
 
         <About />
         <Layout/>
-
+        <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
+                 onCursorDefault     = {onCursorDefault}/>
+        <SMI onCursorCardEnter = {onCursorCardEnter} 
+              onCursorDefault  = {onCursorDefault}/>
         <Works />
 
 

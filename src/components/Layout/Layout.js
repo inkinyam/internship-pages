@@ -1,6 +1,7 @@
 import './Layout.scss';
 import Video from '../Video/Video';
 import Phases from '../Phases/Phases';
+import Slider from '../Slider/Slider.js';
 
 
 const Layout = () => {
@@ -10,6 +11,7 @@ const Layout = () => {
 
     <Video/>
     <Phases/>
+    <Slider />
     </div>
   )
 }

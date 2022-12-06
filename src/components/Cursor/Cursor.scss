@@ -7,6 +7,10 @@
   left: 0;
   z-index: 10000;
   mix-blend-mode: difference;
-  background-color: #fff;
+  background-color: white;
   pointer-events: none;
+  background-image: url(../../images/eye.svg);
+  background-repeat: no-repeat;
+  background-size: contain ;
+  background-position: center;
 }

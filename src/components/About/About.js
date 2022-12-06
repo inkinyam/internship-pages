@@ -1,6 +1,7 @@
 import './About.scss';
 import Title from '../Title/Title';
 import CardList from '../CardList/CardList';
+import SmileyBackground from '../SmileyBackground/SmileyBackground';
 
 const About = () => {
   const datacard = [
@@ -32,7 +33,7 @@ const About = () => {
       <CardList cardData ={datacard}
                 order = {true}/>
 
-
+      <SmileyBackground />
 
     </section>
   )

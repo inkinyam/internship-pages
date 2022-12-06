@@ -1,0 +1,16 @@
+.smi {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.smi__cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.smi__card {
+  width: 150px;
+  height: 200px;
+  background-color: hotpink;
+}
