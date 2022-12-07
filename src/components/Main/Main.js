@@ -51,7 +51,6 @@ const Main = () => {
       y: mousePosition.y -47,
       width: 94,
       height: 94,
-      mixBlendMode: 'darken',
       borderStyle: 'solid',
       borderWidth: 3,
       borderColor: '#DAE856'
