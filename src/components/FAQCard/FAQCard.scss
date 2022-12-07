@@ -1,0 +1,35 @@
+
+
+.faq__card  {
+  width: 100%;
+  border-top: 2px solid var(--dark-default);
+  overflow: hidden;
+}
+
+
+.faq__title {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--dark-default);
+  margin: 16px 0 40px;
+}
+
+.faq_text {
+
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24px; 
+  color: var(--dark-default);
+
+  ul {
+    margin: 0;
+  }
+}

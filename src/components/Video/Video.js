@@ -1,6 +1,6 @@
 import "./Video.scss"
 import React from 'react';
-import { Player, ControlBar } from 'video-react';
+import { Player, ControlBar, BigPlayButton } from 'video-react';
 
 
 const Video = () => {
@@ -12,12 +12,13 @@ const Video = () => {
           fluid       = {true}
           muted       = {true}
           aspectRatio = "auto"
-          autoPlay    = {true} >
-        <ControlBar autoHide={true} />
+          autoPlay    = {false} >
+          <ControlBar disableCompletely={true}/>
+          <BigPlayButton position={'center'}/>
 
 
     </Player> 
-    
+     
   )
 }
 

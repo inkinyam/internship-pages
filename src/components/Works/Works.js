@@ -31,9 +31,6 @@ const Works = () => {
       <Title title='Работы студентов'> </Title>
       <CardList cardData ={datacardWorks}
                 order = {false}/>
-
-
-
     </section>
   )
 }

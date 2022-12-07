@@ -7,10 +7,24 @@
 .smi__cards {
   display: flex;
   flex-direction: row;
+  padding: 24px 0 0;
+  border-top: 2px solid var(--dark-default);
+  column-gap: 24px;
+
+  flex-wrap: nowrap;
+  perspective: 500px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  user-select: none;
+  transition: all 0.3s;
+  justify-content: flex-start;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  &::-moz-scrollbar{
+    display: none;
+  }
 }
 
-.smi__card {
-  width: 150px;
-  height: 200px;
-  background-color: hotpink;
-}

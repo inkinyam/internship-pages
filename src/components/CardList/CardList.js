@@ -7,9 +7,7 @@ const CardList = ({cardData, order}) => {
     <section className='cardList'>
       <ul className='cardList__list'>
         {cardData.map(card => {
-         
           return (
-         
             <Card key         = {card.id}
                   title       = {card.title}
                   description = {card.description}

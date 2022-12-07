@@ -4,16 +4,19 @@ import '../Cursor/Cursor.scss';
 import Lead from '../Lead/Lead';
 import About from '../About/About';
 import Layout from '../Layout/Layout';
-import Works from '../Works/Works';
 import AboutUs from '../AboutUs/AboutUs.js';
 import SMI from '../SMI/SMI';
+import FAQ from '../FAQ/FAQ';
+import HowItWas from '../HowItWas/HowItWas';
+import Works from '../Works/Works';
+import Form from '../Form/Form';
 
 import React from 'react';
 import { motion } from "framer-motion";
-import eye from '../../images/eye.svg';
 
 const Main = () => {
   const [cursorVariant, setCursorVariant] = React.useState('default');
+  const [isCursorBGEyeVariant, setCursorBGEyeVariant] = React.useState(false);
   const [mousePosition, setMousePosition] = React.useState({x: 0, y: 0});
 
   const mouseMove = (e) => {
@@ -26,9 +29,8 @@ const Main = () => {
   React.useEffect (() => {
     window.addEventListener('mousemove', mouseMove);
     return () => {
-      window.removeEventListener('mousemove', mouseMove)
+      window.removeEventListener('mousemove', mouseMove);
     }
-
   }, [])
 
   const variants = {
@@ -43,15 +45,13 @@ const Main = () => {
       width: 120,
       height: 120,
       opacity: 0.9,
-      transitionDuration: 0.2,
     },
     eye: {
       x: mousePosition.x -47,
       y: mousePosition.y -47,
       width: 94,
       height: 94,
-      backgoundColor: '#000',
-      mixBlendMode: 'unset',
+      mixBlendMode: 'darken',
       borderStyle: 'solid',
       borderWidth: 3,
       borderColor: '#DAE856'
@@ -59,19 +59,28 @@ const Main = () => {
   }
 
 
-  const onCursorButtonEnter = () =>  setCursorVariant('button');
-  const onCursorDefault = () => setCursorVariant('default');
-  const onCursorCardEnter = () => setCursorVariant('eye');
+  const onCursorButtonEnter = () =>  {
+    setCursorVariant('button');
+  }
 
+  const onCursorDefault = () => {
+    setCursorVariant('default');
+    setCursorBGEyeVariant(false);
+  }
 
-  return (
+  const onCursorCardEnter = () => {
+    setCursorVariant('eye');
+    setCursorBGEyeVariant(true);
+  }
+
+    const cursorClassNames = isCursorBGEyeVariant ? 'cursor cursor-eye': 'cursor';
+  return (     
     <>
       <main className='main'>
-      <motion.div className = 'cursor'
-                variants   = {variants}
-                animate    = {cursorVariant}
-                transition = {{ duration: 0 }} 
-                whileTap   = {{ scale: 0.8 }}
+      <motion.div className = {cursorClassNames}
+                  variants   = {variants}
+                  animate    = {cursorVariant}
+                  transition = {{ duration: 0 }}                  
                 /> 
 
         <Lead onCursorButtonEnter = {onCursorButtonEnter} 
@@ -80,11 +89,24 @@ const Main = () => {
         <About />
         <Layout/>
         <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
-                 onCursorDefault     = {onCursorDefault}/>
+                 onCursorDefault     = {onCursorDefault}
+                 isAnimated          = {true}
+                 isHasButton         = {true}
+                 text=''/>
         <SMI onCursorCardEnter = {onCursorCardEnter} 
               onCursorDefault  = {onCursorDefault}/>
-        <Works />
 
+        <FAQ onCursorCardEnter = {onCursorCardEnter} 
+              onCursorDefault  = {onCursorDefault}/>     
+
+        <HowItWas/>         
+        <Works />
+        <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
+                 onCursorDefault     = {onCursorDefault}
+                 isAnimated          = {false}
+                 isHasButton         = {false}
+                 text=''/>
+        <Form/>
 
       </main>
     </>

@@ -7,10 +7,14 @@
   left: 0;
   z-index: 10000;
   mix-blend-mode: difference;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   pointer-events: none;
+}
+
+.cursor-eye {
   background-image: url(../../images/eye.svg);
   background-repeat: no-repeat;
-  background-size: contain ;
+  background-size:  80%;
   background-position: center;
+  background-color: transparent;
 }
