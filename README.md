@@ -9,6 +9,7 @@
 * react-scroll
 * framer motion
 * html
+* gsap-animation
 * препроцессор scss
 
 ### Макет: 
@@ -24,8 +25,8 @@
 * Стандартизировать формат получаемых от стажеров заявок
 
 
-### Ссылка на страницу
-[тык](https://inkinyam.github.io/internship-pages/)
+### Ссылка на страницу [тык](https://inkinyam.github.io/internship-pages/)
+
 
 
 ### Статус проекта
