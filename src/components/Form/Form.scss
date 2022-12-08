@@ -2,7 +2,7 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  padding: 60px 0;
+  padding: 140px 0 40px;
 }
 
 .form__layout {
@@ -29,12 +29,99 @@
   animation: bganimation 60s linear infinite forwards;
 }
 
-.form__form{
-  position: relative;
-  z-index: 3;
-}
 
 .form__container  {
   width: 90%;
   margin: 0 auto;
+}
+
+
+.form__form{
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
+  max-width: 914px;
+  margin: 0 auto;
+}
+
+.form__title {
+  margin: 0 auto;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form__line {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  flex-wrap: nowrap;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.form__label {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 24px;
+  text-transform: uppercase;
+  flex-shrink: 8;
+  width: 100%;
+  white-space: nowrap;
+  flex-basis: auto;
+}
+
+.form__input {
+  border-color: transparent  transparent var(--dark-default) transparent;
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--dark-default);
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid var(--primary-default);
+  }
+
+  &::placeholder {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: var(--dark-disabled);
+  }
+}
+
+.form__button {
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  border: 2px solid var(--dark-default);
+  background-color: var(--accent-default);
+  background-image: url(../../images/plane.svg);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: 39% 41%;
+  padding: 0;
+  margin-right: 47px;
+  align-self: flex-end;
 }

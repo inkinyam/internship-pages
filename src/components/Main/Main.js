@@ -10,13 +10,16 @@ import FAQ from '../FAQ/FAQ';
 import HowItWas from '../HowItWas/HowItWas';
 import Works from '../Works/Works';
 import Form from '../Form/Form';
+import Footer from '../Footer/Footer';
 
 import React from 'react';
 import { motion } from "framer-motion";
 
 const Main = () => {
   const [cursorVariant, setCursorVariant] = React.useState('default');
-  const [isCursorBGEyeVariant, setCursorBGEyeVariant] = React.useState(false);
+  const [isCursorEyeVariant, setCursorEyeVariant] = React.useState(false);
+  const [isCursorPensilVariant, setCursorPensilVariant] = React.useState(false);
+   
   const [mousePosition, setMousePosition] = React.useState({x: 0, y: 0});
 
   const mouseMove = (e) => {
@@ -42,8 +45,8 @@ const Main = () => {
     button: {
       x: mousePosition.x -60,
       y: mousePosition.y -60,
-      width: 120,
-      height: 120,
+      width: 100,
+      height: 100,
       opacity: 0.9,
     },
     eye: {
@@ -54,7 +57,18 @@ const Main = () => {
       borderStyle: 'solid',
       borderWidth: 3,
       borderColor: '#DAE856'
+    },
+    pensil: {
+      x: mousePosition.x -20,
+      y: mousePosition.y -20,
+      width: 40,
+      height: 40,
+      borderStyle: 'solid',
+      borderWidth: 2,
+      borderColor: '#DAE856'
+      
     }
+
   }
 
 
@@ -64,15 +78,21 @@ const Main = () => {
 
   const onCursorDefault = () => {
     setCursorVariant('default');
-    setCursorBGEyeVariant(false);
+    setCursorEyeVariant(false);
+    setCursorPensilVariant(false);
   }
 
   const onCursorCardEnter = () => {
     setCursorVariant('eye');
-    setCursorBGEyeVariant(true);
+    setCursorEyeVariant(true);
   }
 
-    const cursorClassNames = isCursorBGEyeVariant ? 'cursor cursor-eye': 'cursor';
+  const onCursorInputEnter = () => {
+    setCursorVariant('pensil');
+    setCursorPensilVariant(true);
+  }
+
+    const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': isCursorPensilVariant? 'cursor cursor-pensil': 'cursor';
   return (     
     <>
       <main className='main'>
@@ -105,9 +125,13 @@ const Main = () => {
                  isAnimated          = {false}
                  isHasButton         = {false}
                  text=''/>
-        <Form/>
+        <Form onCursorButtonEnter = {onCursorButtonEnter}
+              onCursorInputEnter  = {onCursorInputEnter} 
+              onCursorDefault     = {onCursorDefault}/>
 
       </main>
+      <Footer onCursorButtonEnter = {onCursorButtonEnter} 
+              onCursorDefault     = {onCursorDefault}/>
     </>
   )
 }

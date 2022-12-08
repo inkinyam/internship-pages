@@ -1,6 +1,6 @@
 import './Lead.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import Navigation from '../Navigation/Navigation';
 const Lead = ({onCursorButtonEnter, onCursorDefault}) => {
 
@@ -34,7 +34,7 @@ const onCursorLeave = () => {
             <span>
               <p>в&nbsp;Институте</p>
               <p>Генплана</p>   
-              <p>Москвы <Link to="/form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link></p>
+              <p>Москвы <Link smooth={true}  to="form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link></p>
             </span>
           </div>
           

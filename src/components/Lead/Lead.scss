@@ -185,6 +185,11 @@
   align-self:flex-end;
   margin-bottom: 31px;
   margin-left: 40px;
+  transition: transform 0.2s ease-in-out;
+  
+  &:active {
+    transform: scale(0.97);
+  }
 
   @media screen and (max-width: 1180px) {
     margin-bottom: 25px;
