@@ -1,31 +1,180 @@
-.layout {
-  position: relative;
+.layout{
   width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: var(--dark-default);
   overflow: hidden;
-  height: auto;
+
+
+  .layout__big {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 1700px;
+    height: 1700px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+    filter: blur(120px);
+    animation: bigRoundAnimation 80s ease infinite forwards;
+    transform-origin: center center;
+  }
+
+  .layout__middle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+  
+    /*левый*/
+    &.r1 {
+      top: 50%;
+      left: 0;
+      background: radial-gradient(50% 50% at 50% 50%, #3181d6 0%, #042547 63.54%, #000000 100%);
+      filter: blur(100px);
+
+      transform-origin: 200px 300px;
+      animation: middleLeftRoundAnimation 40s ease-in-out infinite forwards;
+    }
+
+  /*правый*/
+    &.r2 {
+      top: 40%;
+      left: 40%;
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: small2RoundAnimation 40s cubic-bezier(0.075, 0.82, 0.465, 1) infinite alternate;
+    }
+
+    &.r3 {
+      top: 10%;
+      left: 10%;
+      transform-origin: 50px 40px;
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
+    }
+
+    &.r4 {
+      top: 58%;
+      left: 0;
+
+      transform-origin: 22px;
+
+      background: conic-gradient(from 180deg at 50% 50%, #2D8BF1 0deg, #0B233C 213.75deg, #000000 360deg);
+      filter: blur(60px);
+      transform: rotate(-90deg);
+      animation: middleRightRoundAnimation 40s ease-in-out infinite forwards;
+    }
+  }
+
+  .layout__small {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #0C5FBA 0%, #09488D 63.54%, #000000 100%);
+    filter: blur(100px);
+    transform-origin: 60% 60%;
+    animation: smallRoundAnimation 30s ease-in-out infinite forwards;
+  }
 }
 
 
-.layout__figure {
-  width: 2500px;
-  height: 2500px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: conic-gradient(from 225deg at 50% 50%, #DAE856 0deg, #E3E3E3 360deg);
-  z-index: 1;
-  animation: bganimation 60s linear infinite forwards;
-}
 
 
-@keyframes bganimation {
+/*ШАРИКИ В ЛИДЕ*/
+@keyframes  bigRoundAnimation {
   from {
-    transform: translate(-50%, -50%) rotate(0);
+    transform: rotate(0) translate(-10%, -10%) ;
   }
 
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: rotate(360deg) translate(-10%, -10%);
   }
+  
+}
+
+@keyframes  middleLeftRoundAnimation {
+  0% {
+    transform: translate(0,-50%) rotate(0);
+  }
+
+  33% {
+    transform: translate(30%,-60%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(-45%,-50%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(0%,-50%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  middleRightRoundAnimation {
+  0% {
+    transform: translate(0,10%) rotate(0);
+  }
+
+  33% {
+    transform: translate(30%,30%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(45%,50%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(0%,10%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  smallRoundAnimation {
+  0% {
+    transform: translate(-40%,-30%) rotate(0);
+  }
+
+  33% {
+    transform: translate(-43%,-52%) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(-30%,-42%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(-40%,-30%) rotate(-360deg);
+  }
+  
+}
+
+@keyframes  small2RoundAnimation {
+  0% {
+    transform: translate(-22%,-30%) rotate(0);
+  }
+
+  33% {
+    transform: translate(0,0) rotate(-120deg);
+  } 
+
+  66% {
+    transform: translate(50%,22%) rotate(-240deg);
+  } 
+
+  100% {
+    transform: translate(-22%,-30%) rotate(-360deg);
+  }
+  
 }

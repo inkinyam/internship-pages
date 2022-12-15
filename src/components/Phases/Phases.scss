@@ -1,9 +1,39 @@
 .phases {
   width: 100%;
-  max-width: 90%;
-  z-index: 3;
   position: relative;
-  margin: 160px auto;
+  box-sizing: border-box;
+  padding: 130px 0 100px;
+}
+
+.phases__layout {
+  z-index: 1;
+  position: absolute;
+  overflow: hidden;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  clip-path: polygon(0 0, 100% 0, 100% 47%, 96% 77%, 87% 79%, 79% 90%, 28% 91%, 23% 84%, 11% 89%, 0 58%);
+
+}
+
+.phases__bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  width: 2500px;
+  height: 2500px;
+  background: conic-gradient(from 225deg at 50% 50%, #DAE856 0deg, #E3E3E3 360deg);
+  animation: bganimation 60s linear infinite forwards;
+}
+
+.phases__content {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
 }
 
 

@@ -1,9 +1,9 @@
 import './Lead.scss';
 import React from 'react';
 import { Link } from 'react-scroll';
-import Navigation from '../Navigation/Navigation';
-const Lead = ({onCursorButtonEnter, onCursorDefault}) => {
 
+
+const Lead = ({onCursorButtonEnter, onCursorDefault, isLeadHide}) => {
 
 const onButtonHoverCursor = () => {
   onCursorButtonEnter();
@@ -13,20 +13,10 @@ const onCursorLeave = () => {
   onCursorDefault();
 }
 
+const leadClassList  = isLeadHide? 'lead_hide': 'lead';
+
   return (
-    <section className='lead' >
-      <Navigation isFixed = { false }
-                  onCursorButtonEnter = {onCursorButtonEnter} 
-                  onCursorDefault = {onCursorDefault}
-        />
-      <div className='lead__bg'>
-        <div className='lead__big'></div>
-        <div className='lead__middle r1'></div>
-        <div className='lead__middle r2'></div>
-        <div className='lead__middle r3'></div>
-        <div className='lead__middle r4'></div>
-        <div className='lead__small'></div>
-      </div>
+    <section className={leadClassList} >
       <div className='lead__content'>
         
           <div className='lead__title'>

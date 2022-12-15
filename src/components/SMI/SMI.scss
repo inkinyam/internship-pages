@@ -13,18 +13,17 @@
 
   flex-wrap: nowrap;
   perspective: 500px;
-  overflow-y: hidden;
   overflow-x: scroll;
   user-select: none;
   transition: all 0.3s;
   justify-content: flex-start;
 
-  &::-webkit-scrollbar {
+/*   &::-webkit-scrollbar {
     display: none;
   }
   
   &::-moz-scrollbar{
     display: none;
-  }
+  } */
 }
 

@@ -1,7 +1,7 @@
 import './SMI.scss';
 import Title from '../Title/Title';
 import SMIcard from './SMIcard';
-import { motion } from "framer-motion";
+
 
 
 const SMI = ({onCursorCardEnter, onCursorDefault}) => {
@@ -61,7 +61,7 @@ const SMI = ({onCursorCardEnter, onCursorDefault}) => {
     <section className='smi'>
       <Title title='Сми о стажировке'></Title>
      
-      <motion.div className='smi__cards'>
+      <div className='smi__cards' >
 
        {SMIdata.map(card => {    
         return  ( 
@@ -73,11 +73,12 @@ const SMI = ({onCursorCardEnter, onCursorDefault}) => {
                   link        = {card.link}
                   onCursorCardEnter = {onCursorCardEnter} 
                   onCursorDefault  = {onCursorDefault}
+                  
             />)
         })
        }
 
-      </motion.div>
+      </div>
    
     </section>
   )

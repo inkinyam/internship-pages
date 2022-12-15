@@ -5,9 +5,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 @import '~video-react/styles/scss/video-react';
 
-* {
+/* * {
   cursor: none;    
-}
+} */
 
 body {
   margin: 0;
@@ -48,3 +48,18 @@ body {
   --transition-duration: 0.4s;
   --transition-timing: ease-in-out;
 }
+
+
+@keyframes bganimation {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+
+

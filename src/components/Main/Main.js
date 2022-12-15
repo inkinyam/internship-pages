@@ -1,10 +1,12 @@
 import './Main.scss';
 import '../Cursor/Cursor.scss';
 
-import Lead from '../Lead/Lead';
-import About from '../About/About';
 import Layout from '../Layout/Layout';
+import About from '../About/About';
 import AboutUs from '../AboutUs/AboutUs.js';
+import Video from '../Video/Video';
+import Phases from '../Phases/Phases';
+
 import SMI from '../SMI/SMI';
 import FAQ from '../FAQ/FAQ';
 import HowItWas from '../HowItWas/HowItWas';
@@ -92,7 +94,7 @@ const Main = () => {
     setCursorPensilVariant(true);
   }
 
-    const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': isCursorPensilVariant? 'cursor cursor-pensil': 'cursor';
+  const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': isCursorPensilVariant? 'cursor cursor-pensil': 'cursor';
   return (     
     <>
       <main className='main'>
@@ -102,16 +104,18 @@ const Main = () => {
                   transition = {{ duration: 0 }}                  
                 /> 
 
-        <Lead onCursorButtonEnter = {onCursorButtonEnter} 
-              onCursorDefault     = {onCursorDefault}/>
+        <Layout onCursorButtonEnter = {onCursorButtonEnter} 
+                onCursorDefault     = {onCursorDefault}/>
 
         <About />
-        <Layout/>
+        <Video/>
+        <Phases/>
+       
         <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
                  onCursorDefault     = {onCursorDefault}
                  isAnimated          = {true}
                  isHasButton         = {true}
-                 text=''/>
+                 text='Разрабатываем генеральные планы, проекты планировки, нормативы и градостроительную документацию по всей России. Раз в год проводим стажировку для студентов.'/>
         <SMI onCursorCardEnter = {onCursorCardEnter} 
               onCursorDefault  = {onCursorDefault}/>
 
@@ -124,7 +128,7 @@ const Main = () => {
                  onCursorDefault     = {onCursorDefault}
                  isAnimated          = {false}
                  isHasButton         = {false}
-                 text=''/>
+                 text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>
         <Form onCursorButtonEnter = {onCursorButtonEnter}
               onCursorInputEnter  = {onCursorInputEnter} 
               onCursorDefault     = {onCursorDefault}/>

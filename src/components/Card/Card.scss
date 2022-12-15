@@ -9,9 +9,12 @@
   flex-direction: column;
   z-index: 3;
 
+  @media screen and (max-width: 1250px) {
+    max-height: 600px;
+  }
+
   @media screen and (max-width: 776px) {
-    flex-basis: 100%
-    
+    flex-basis: 100%;
   }
 
     
@@ -85,4 +88,16 @@
 
 .card:has(.card__description_first) {
   height: 400px;
+
+  
+  @media screen and (max-width: 1250px) {
+    height: 600px;
+  }
+
+  
+  @media screen and (max-width: 776px) {
+    height: 500px;
+    max-height: fit-content;
+  }
+
 }

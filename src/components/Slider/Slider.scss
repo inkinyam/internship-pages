@@ -1,6 +1,7 @@
 .slider {
   position: relative;
   height: 500px;
+  padding-top: 120px;
   text-align: center;
   z-index: 5;
 
@@ -9,7 +10,8 @@
 }
 
 .slider__img {
-  width: 866px;
+ max-width: 866px;
+ width: 100%;
   height: 440px;
   margin: auto;
 }
