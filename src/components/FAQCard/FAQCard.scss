@@ -2,10 +2,22 @@
 
 .faq__card  {
   width: 100%;
-  border-top: 2px solid var(--dark-default);
+  position: relative;
   overflow: hidden;
 }
 
+.faq__card.animated {
+  &::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom:  0;
+    left: 0;
+    background-color: var(--dark-default);
+    animation: cardTopLine 1s ease forwards;
+  }
+}
 
 .faq__title {
   font-family: 'Circe';

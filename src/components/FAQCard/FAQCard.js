@@ -1,6 +1,7 @@
 import './FAQCard.scss';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
 
 const FAQCard = ({question, answer, onCursorCardEnter, onCursorDefault}) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -12,9 +13,16 @@ const FAQCard = ({question, answer, onCursorCardEnter, onCursorDefault}) => {
   const onCursorLeave = () => {
     onCursorDefault();
   }
+ 
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
+
+  const FAQcardClassList = inView? 'faq__card animated' : 'faq__card '
 
   return (
-  <motion.div className = 'faq__card '
+  <motion.div ref={ref} className = {FAQcardClassList}
               animate   = {isOpen ? "open" : "closed"}
               onClick = {() => {setIsOpen(!isOpen)}}
               onMouseEnter={onCardHoverCursor} 

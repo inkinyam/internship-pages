@@ -17,7 +17,13 @@
     flex-basis: 100%;
   }
 
-    
+
+   
+  
+}
+
+
+.card.animated {
   &:before {
     content: '';
     width: 0;
@@ -41,17 +47,19 @@
   }
 }
 
-.card__title {
-  font-family: 'Circe';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 29px;
-  line-height: 34px;
-  color: var(--dark-default);
-  text-transform: uppercase;
-  margin: 0 0 16px;
-  order:2
-}
+  .card__title {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 34px;
+    color: var(--dark-default);
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    order:2
+   } 
+  
+
 
 .card__description {
   font-family: 'Lora';

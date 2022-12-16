@@ -1,6 +1,8 @@
 import './Main.scss';
 import '../Cursor/Cursor.scss';
 
+import Loader from '../Loader/Loader';
+
 import Layout from '../Layout/Layout';
 import About from '../About/About';
 import AboutUs from '../AboutUs/AboutUs.js';
@@ -19,6 +21,8 @@ import { motion } from "framer-motion";
 
 
 const Main = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
   const [cursorVariant, setCursorVariant] = React.useState('default');
   const [isCursorEyeVariant, setCursorEyeVariant] = React.useState(false);
   const [isCursorPensilVariant, setCursorPensilVariant] = React.useState(false);
@@ -32,12 +36,18 @@ const Main = () => {
     })
   }
 
-  React.useEffect (() => {
+   React.useEffect (() => {
     window.addEventListener('mousemove', mouseMove);
     return () => {
       window.removeEventListener('mousemove', mouseMove);
     }
   }, [])
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 2000);
+  })
 
   const variants = {
     default: {
@@ -97,46 +107,49 @@ const Main = () => {
 
   const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': isCursorPensilVariant? 'cursor cursor-pensil': 'cursor';
   return (     
-    <>
-      <main className='main'>
-      <motion.div className = {cursorClassNames}
-                  variants   = {variants}
-                  animate    = {cursorVariant}
-                  transition = {{ duration: 0 }}                  
-                /> 
+    <>  
+      <Loader isLoading = {isLoading}/>
+      <div className={isLoading? 'hide_content': ''}>
+        <main className='main'>
+            <motion.div className = {cursorClassNames}
+                        variants   = {variants}
+                        animate    = {cursorVariant}
+                        transition = {{ duration: 0 }}                  
+                      /> 
 
-        <Layout onCursorButtonEnter = {onCursorButtonEnter} 
+              <Layout onCursorButtonEnter = {onCursorButtonEnter} 
+                      onCursorDefault     = {onCursorDefault}/>
+
+              <About />
+              <Video/>
+              <Phases/>
+            
+              <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
+                      onCursorDefault     = {onCursorDefault}
+                      isAnimated          = {true}
+                      isHasButton         = {true}
+                      text='Разрабатываем генеральные планы, проекты планировки, нормативы и градостроительную документацию по всей России. Раз в год проводим стажировку для студентов.'/>
+              <SMI onCursorCardEnter = {onCursorCardEnter} 
+                    onCursorDefault  = {onCursorDefault}/>
+
+              <FAQ onCursorCardEnter = {onCursorCardEnter} 
+                    onCursorDefault  = {onCursorDefault}/>     
+
+              <HowItWas/>         
+              <Works />
+              <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
+                      onCursorDefault     = {onCursorDefault}
+                      isAnimated          = {false}
+                      isHasButton         = {false}
+                      text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>
+              <Form onCursorButtonEnter = {onCursorButtonEnter}
+                    onCursorInputEnter  = {onCursorInputEnter} 
+                    onCursorDefault     = {onCursorDefault}/>
+
+        </main>
+        <Footer onCursorButtonEnter = {onCursorButtonEnter} 
                 onCursorDefault     = {onCursorDefault}/>
-
-        <About />
-        <Video/>
-        <Phases/>
-       
-        <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
-                 onCursorDefault     = {onCursorDefault}
-                 isAnimated          = {true}
-                 isHasButton         = {true}
-                 text='Разрабатываем генеральные планы, проекты планировки, нормативы и градостроительную документацию по всей России. Раз в год проводим стажировку для студентов.'/>
-        <SMI onCursorCardEnter = {onCursorCardEnter} 
-              onCursorDefault  = {onCursorDefault}/>
-
-        <FAQ onCursorCardEnter = {onCursorCardEnter} 
-              onCursorDefault  = {onCursorDefault}/>     
-
-        <HowItWas/>         
-        <Works />
-        <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
-                 onCursorDefault     = {onCursorDefault}
-                 isAnimated          = {false}
-                 isHasButton         = {false}
-                 text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>
-        <Form onCursorButtonEnter = {onCursorButtonEnter}
-              onCursorInputEnter  = {onCursorInputEnter} 
-              onCursorDefault     = {onCursorDefault}/>
-
-      </main>
-      <Footer onCursorButtonEnter = {onCursorButtonEnter} 
-              onCursorDefault     = {onCursorDefault}/>
+       </div>
     </>
   )
 }

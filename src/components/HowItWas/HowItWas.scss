@@ -11,7 +11,7 @@
   position: relative;
   max-width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 40px auto 0 ;
   border-top: 2px solid var(--dark-default);
   z-index: 3;
 
@@ -62,8 +62,8 @@
 .howItWas__statCard {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid var(--dark-default);
   flex-basis: 33.333%;
+  position: relative;
 
   @media screen and (max-width: 980px) {
     flex-direction: row;
@@ -76,6 +76,20 @@
     align-items: flex-start;
   }
 }
+
+.howItWas__statCard.animated {
+  &:before {
+    content: '';
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--dark-default);
+    animation: cardTopLine 1s ease forwards;
+  }
+}
+
 .howItWas__statTitle {
   font-family: 'Circe';
   font-style: normal;
