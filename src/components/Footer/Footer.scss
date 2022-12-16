@@ -1,14 +1,27 @@
 .footer {
-  display: flex;
   box-sizing: border-box;
   padding: 40px 0;
-  flex-direction: row;
+  width: 100%;
+  
+  background-color: var(--dark-default);
+  color: var(--light-default);
+}
+
+.footer__container {
+  margin: 0 auto;
+  max-width: 90%;
   width: 100%;
   justify-content: center;
   align-items: flex-start;
   column-gap: 24px;
-  background-color: var(--dark-default);
-  color: var(--light-default);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  @media screen and (max-width: 1240px) {
+    justify-content: flex-start;
+    
+  }
 }
 
 .footer__box {

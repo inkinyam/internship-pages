@@ -17,6 +17,7 @@ import Footer from '../Footer/Footer';
 import React from 'react';
 import { motion } from "framer-motion";
 
+
 const Main = () => {
   const [cursorVariant, setCursorVariant] = React.useState('default');
   const [isCursorEyeVariant, setCursorEyeVariant] = React.useState(false);

@@ -27,25 +27,25 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault}) => {
         <form className='form__form'>
           <h4 className='form__title'>Подать заявку на практику</h4>
           <fieldset className='form__line'>
-            <span className='form__label'> Я,</span>
-            <input className='form__input' 
-                   placeholder='имя'
-                   type="text"
-                   onMouseEnter={onInputHoverCursor} 
-                   onMouseLeave={onCursorLeave}/>
-
+            <fieldset className='form__line'>
+              <span className='form__label'> Я,</span>
+              <input className='form__input' 
+                    placeholder='имя'
+                    type="text"
+                    onMouseEnter={onInputHoverCursor} 
+                    onMouseLeave={onCursorLeave}/>
+            </fieldset>
             <input className='form__input' 
                    placeholder='фамилия'
                    type="text"
                    onMouseEnter={onInputHoverCursor} 
                    onMouseLeave={onCursorLeave}/>
-            <span className='form__label'> ,</span>
           </fieldset>
 
           <fieldset className='form__line'>
             <span className='form__label'> мой вуз</span>
             <input className='form__input' 
-                    placeholder='назавание вуза, например, МАРХИ'
+                    placeholder='например, МАРХИ'
                     type="text"
                     onMouseEnter={onInputHoverCursor} 
                     onMouseLeave={onCursorLeave}/>
@@ -54,7 +54,7 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault}) => {
           <fieldset className='form__line'>
             <span className='form__label'> изучаю специальность</span>
             <input className='form__input' 
-                   placeholder='специальность, например, архитектура'
+                   placeholder='например, архитектура'
                    type="text"
                    onMouseEnter={onInputHoverCursor} 
                    onMouseLeave={onCursorLeave}/>
@@ -63,7 +63,7 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault}) => {
           <fieldset className='form__line'>
             <span className='form__label'> год обучения</span>
             <input className='form__input' 
-                   placeholder='год обучения, например, третий'
+                   placeholder='например, третий'
                    type="text"   
                    onMouseEnter={onInputHoverCursor} 
                    onMouseLeave={onCursorLeave}/>
@@ -85,7 +85,6 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault}) => {
                    type="text"
                    onMouseEnter={onInputHoverCursor} 
                    onMouseLeave={onCursorLeave}/>
-            <span className='form__label'>прошу рассмотреть мою кандидатуру</span>       
           </fieldset>
           <motion.button type="submit"  
                          whileTap={{ scale: 0.97 }}

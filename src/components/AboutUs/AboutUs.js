@@ -9,7 +9,6 @@ const AboutUs = ({onCursorButtonEnter, onCursorDefault, isAnimated, isHasButton,
 
   const { ref, inView } = useInView({
     threshold: 0.9,
-    triggerOnce: true
   });
 
   const onButtonHoverCursor = () => {
