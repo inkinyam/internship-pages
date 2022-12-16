@@ -18,7 +18,6 @@ const SliderWrap = ({
            drag           = "x"
            initial        = {{ x: 0 }}
            style          = {{ x }}
-           // style={{ x: scrollXValue }}
            dragConstraints = {{
              left: -sliderConstraints,
              right: 0
