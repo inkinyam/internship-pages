@@ -33,7 +33,7 @@ const loaderVar = {
         <motion.div className="loader__background">
           <motion.img src={Logo} 
                       alt="логотип Институт Генплана Москвы"
-                      animate={{scale: 40, rotate: 360}}
+                      animate={{scale: 20, rotate: 360}}
                       transition={{
                         duration:3
                       }}/>
