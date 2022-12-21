@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/internship-pages/static/css/main.c293c558.css",
-    "main.js": "/internship-pages/static/js/main.3e0fa864.js",
+    "main.css": "/internship-pages/static/css/main.ad8e05d4.css",
+    "main.js": "/internship-pages/static/js/main.caf7426b.js",
     "static/js/787.635aedaa.chunk.js": "/internship-pages/static/js/787.635aedaa.chunk.js",
     "static/media/circe.ttf": "/internship-pages/static/media/circe.814e4dd4329ffdb6c9ed.ttf",
     "static/media/circe_bold.ttf": "/internship-pages/static/media/circe_bold.63396ee791f60623acbf.ttf",
@@ -19,12 +19,12 @@
     "index.html": "/internship-pages/index.html",
     "static/media/plane.svg": "/internship-pages/static/media/plane.957da5c9dc578b72eeae.svg",
     "static/media/pensil.svg": "/internship-pages/static/media/pensil.70af0f4e97a7eff8008f.svg",
-    "main.c293c558.css.map": "/internship-pages/static/css/main.c293c558.css.map",
-    "main.3e0fa864.js.map": "/internship-pages/static/js/main.3e0fa864.js.map",
+    "main.ad8e05d4.css.map": "/internship-pages/static/css/main.ad8e05d4.css.map",
+    "main.caf7426b.js.map": "/internship-pages/static/js/main.caf7426b.js.map",
     "787.635aedaa.chunk.js.map": "/internship-pages/static/js/787.635aedaa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c293c558.css",
-    "static/js/main.3e0fa864.js"
+    "static/css/main.ad8e05d4.css",
+    "static/js/main.caf7426b.js"
   ]
 }
