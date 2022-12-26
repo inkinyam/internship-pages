@@ -130,5 +130,49 @@ const SMIdata = [
   },
 ]
 
-export {datacard1, FAQCardData, SMIdata};
+
+const sliderInfo = [
+  { id: 1,
+    title: 'Тест 1',
+    url: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
+  },
+  { id: 2,
+    title: 'Тест 2',
+    url: 'https://images.unsplash.com/photo-1498673394965-85cb14905c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  },
+  { id: 3,
+    title: 'Тест 3 ',
+    url: 'https://images.unsplash.com/photo-1577046848358-4623c0859b8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  },
+  { id: 4,
+    title: 'Тест 4',
+    url: 'https://images.unsplash.com/photo-1546074177-31bfa593f731?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80',
+  },
+  { id: 5,
+    title: 'Тест 5',
+    url: 'https://images.unsplash.com/photo-1610643781442-ec645d94c89b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+  },
+  { id: 6,
+    title: 'Тест 6',
+    url: 'https://images.unsplash.com/photo-1604537372136-89b3dae196e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
+  },
+  { id: 7,
+    title: 'Тест 7',
+    url: 'https://images.unsplash.com/photo-1546272192-c19942fa8b26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
+  },
+  { id: 8,
+    title: 'Тест 8',
+    url: 'https://images.unsplash.com/photo-1608416026650-66b4e0c0c301?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  },
+  { id: 9,
+    title: 'Тест 9',
+    url: 'https://plus.unsplash.com/premium_photo-1665949503006-f82ca4b7e132?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=712&q=80',
+  },
+  { id: 10,
+    title: 'Тест 10',
+    url: 'https://images.unsplash.com/photo-1521478413868-1bbd982fa4a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  }
+];
+
+export {datacard1, FAQCardData, SMIdata, sliderInfo};
 

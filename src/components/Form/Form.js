@@ -18,9 +18,18 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault}) => {
 
   return ( 
     <section className='form'>
+
+
+
+   
       <div className='form__layout'>
         <div className='form__bg'></div>
       </div>
+      
+      <svg className='form__svg' viewBox="0 0 1312 675" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M1 1H1311M1 1V674H1311V1M1 1L656 134L1311 1" stroke="black"/>
+      </svg>
+
 
       <div className='form__container'>
 

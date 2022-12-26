@@ -62,7 +62,10 @@ const Phases = () => {
             <p className="phases__description">Итоговая защита проектов</p>
           </div>
         </div>
-        <Slider />
+        <Slider autoPlay      = {false}
+                autoPlayTime  = {5000}
+                width         = {'100%'}
+                height        = {'100%'} />
       </div>
 
     </section>

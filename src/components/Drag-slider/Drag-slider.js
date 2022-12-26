@@ -47,20 +47,19 @@ export const DragSlider = ({ children, bounceStiffness = 300,  bounceDamping =20
         ref?.current?.scrollWidth
       );
     };
-  
+    calcSliderChildrenWidth();
+
     const calcSliderWidth = () => {
       setSliderWidth(ref?.current?.clientWidth);
     };
+    calcSliderWidth();
   
     const calcSliderConstraints = () => {
       setSliderConstraints(sliderChildrenWidth - sliderWidth);
     };
-  
-    calcSliderChildrenWidth();
-    calcSliderWidth();
+    calcSliderConstraints();  
+
     window.addEventListener("resize", calcSliderWidth);
-   
-    calcSliderConstraints();
     window.addEventListener("resize", calcSliderConstraints);
   }, [ref, sliderChildrenWidth, sliderWidth]);
 
@@ -71,7 +70,6 @@ export const DragSlider = ({ children, bounceStiffness = 300,  bounceDamping =20
       sliderConstraints = {sliderConstraints}
       bounceStiffness   = {bounceStiffness}
       bounceDamping     = {bounceDamping}>
-      
       {children}
 
     </SliderWrap>
