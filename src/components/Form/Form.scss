@@ -52,7 +52,7 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 20px;
   max-width: 914px;
   margin: 0 auto;
 }
@@ -68,73 +68,54 @@
   text-align: center;
 }
 
-.form__line {
+.form__fieldset {
+  border: none;
+  padding: 0;
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
-
-  flex-wrap: nowrap;
-  border: none;
-  background-color: transparent;
-  padding: 0;
+  column-gap: 5px;
   margin: 0;
-
-  .form__line {
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-
-  @media screen and (max-width: 890px) {
-    flex-wrap: wrap;
-    row-gap: 25px;
-    .form__line {
-      flex-wrap: nowrap;
-
-    }
-  }
 }
 
-.form__label {
+.form__text {
+  color: var(--dark-default);
   font-family: 'Circe';
   font-style: normal;
   font-weight: 700;
-  font-size: 22px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 30px;
   text-transform: uppercase;
-  flex-shrink: 8;
-  width: 100%;
   white-space: nowrap;
+}
 
+.form__label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .form__input {
-  border-color: transparent  transparent var(--dark-default) transparent;
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid transparent;
   background-color: transparent;
-  width: 100%;
+  width: auto;
+  border-bottom-color: var(--dark-default);
+  color: var(--dark-default);
+
+  font-family: 'Circe';
+  font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
-  color: var(--primary-default);
-  flex-shrink: 1;
+
+  &::placeholder {
+    color:var(--dark-disabled)
+  }
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid var(--primary-hovered);
   }
 
-  &::placeholder {
-    font-family: 'Circe';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: uppercase;
-    color: var(--dark-disabled);
-  }
 }
 
 .form__button {
@@ -152,7 +133,22 @@
   align-self: flex-end;
 }
 
+.form__err {
+  opacity: 1;
+  height: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--dark-default);
+  margin: 0 0 4px;
+  transition: opacity .2s ease-in;
 
+      &_show {
+      opacity: 1;
+    }
+
+}
 
 
 .form__svg {
