@@ -2,8 +2,15 @@ import './Form.scss';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInputValidator } from '../../utils/customHooks/useInputValidator';
+import { useInView } from "react-intersection-observer";
 
 const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmit}) => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
+
+
   const [isValid, setIsValid]     = React.useState(false);
   const inputControl              = useInputValidator();
   const { name, surname, institute, speciality, year, email, portfolioLink } = inputControl.errors;
@@ -32,18 +39,18 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
     onCursorDefault();
   }
 
+  const envelopeClassList = inView? 'form__svg animated': 'form__svg';
+
   return ( 
     <section className='form'>
 
-
-
-   
+  
       <div className='form__layout'>
         <div className='form__bg'></div>
       </div>
       
-      <svg className='form__svg' viewBox="0 0 1312 675" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M1 1H1311M1 1V674H1311V1M1 1L656 134L1311 1" stroke="black"/>
+      <svg ref={ref} className={envelopeClassList} viewBox="0 0 1312 675" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path  d="M1 1H1311M1 1V674H1311V1M1 1L656 134L1311 1"> </path>
       </svg>
 
 
@@ -63,8 +70,9 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                      maxLength   = "100" 
                      required 
                      pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
-                     value       = {inputControl?.values?.name}
+                     value       = {inputControl?.values?.name || ''}
                      onChange    = {inputControl.handleChange}
+                     name        = "name"
                      id          = "name"/>
               <span className={`form__err ${inputControl?.errors?.name && "form__err_show"}`}>{name}</span>
             </label>
@@ -79,8 +87,9 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                      maxLength   = "100" 
                      required 
                      pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
-                     value       = {inputControl?.values?.surname}
+                     value       = {inputControl?.values?.surname|| ''}
                      onChange    = {inputControl.handleChange}
+                     name        = "surname"
                      id          = "surname"/>
               <span className = {`form__err ${inputControl?.errors?.surname && "form__err_show"}`}>{surname}</span>
             </label>
@@ -97,9 +106,10 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]"
-                      value       = {inputControl?.values?.surname }
+                      pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
+                      value       = {inputControl?.values?.institute || '' }
                       onChange    = {inputControl.handleChange}
+                      name        = "institute"
                       id          = "institute"/>
                 <span className={`form__err ${inputControl?.errors?.institute && "form__err_show"}`}>{institute}</span>
               </label>
@@ -116,9 +126,10 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]"
-                      value       = {inputControl?.values?.surname}
+                      pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
+                      value       = {inputControl?.values?.speciality || ''}
                       onChange    = {inputControl.handleChange}
+                      name        = "speciality"
                       id          = "speciality"/>
                 <span className={`form__err ${inputControl?.errors?.speciality && "form__err_show"}`}>{speciality}</span>
               </label>
@@ -135,9 +146,10 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]"
-                      value       = {inputControl?.values?.surname}
+                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]+"
+                      value       = {inputControl?.values?.year || ''}
                       onChange    = {inputControl.handleChange}
+                      name        = "year"
                       id          = "year"/>
                 <span className={`form__err ${inputControl?.errors?.year && "form__err_show"}`}>{year}</span>
               </label>
@@ -154,9 +166,10 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]"
-                      value       = {inputControl?.values?.email}
+                      pattern     = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                      value       = {inputControl?.values?.email || ''}
                       onChange    = {inputControl.handleChange}
+                      name        = "email"
                       id          = "email"/>
                 <span className={`form__err ${inputControl?.errors?.email && "form__err_show"}`}>{email}</span>
               </label>
@@ -173,9 +186,10 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]"
-                      value       = {inputControl?.values?.portfolioLink }
+                      /* pattern     = "/^https?:\/\/(www)?[0-9a-z\-._~:/?#[\]@!$&'()*+,;=]+#?$/i" */
+                      value       = {inputControl?.values?.portfolioLink  || ''}
                       onChange    = {inputControl.handleChange}
+                      name        = "portfolioLink"
                       id          = "portfolioLink"/>
                 <span className = {`form__err ${inputControl?.errors?.portfolioLink && "form__err_show"}`}>{portfolioLink}</span>
               </label>

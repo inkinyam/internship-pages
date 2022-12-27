@@ -116,6 +116,19 @@
     outline: none;
   }
 
+  &_error {
+    background-image: url(../../images/inputvalidation/error.png);
+    background-size: 4px 15px;
+    background-position: right 5px center;
+    background-repeat: no-repeat;
+  }
+  &_succes {
+    background-image: url(../../images/inputvalidation/succes.png);
+    background-size: 20px;
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+
 }
 
 .form__button {
@@ -141,13 +154,14 @@
   font-size: 15px;
   line-height: 18px;
   color: var(--dark-default);
+  text-transform: lowercase;
+  padding-left: 4px;
   margin: 0 0 4px;
   transition: opacity .2s ease-in;
 
       &_show {
       opacity: 1;
     }
-
 }
 
 
@@ -161,4 +175,16 @@
   height: auto;
   margin: 0 auto;
   stroke-width: 2px;
-}
+  stroke: var(--dark-default);
+  stroke-dashoffset: 3000; 
+  stroke-dasharray: 3000;
+    &.animated {
+      animation: dash 3s ease-out forwards;
+    }
+  
+ }
+
+
+
+
+

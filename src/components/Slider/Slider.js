@@ -18,13 +18,15 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
   const [slide, setSlide] = React.useState(0);
   const [touchPosition, setTouchPosition] = React.useState(null)
 
-   React.useEffect(() => {
+ React.useEffect(() => {
     const loadData = async () => {
       const images = await getImages();
       setItems(images);
     };
     loadData();
   }, []); 
+
+
   const changeSlide = (direction = 1) => {
     let slideNumber = 0;
 
@@ -37,13 +39,14 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
     setSlide(slideNumber);
   };
 
+
   const goToSlide = (number) => {
     setSlide(number % items.length);
   };
 
+
   const handleTouchStart = (e) => {
     const touchDown = e.touches[0].clientX;
-
     setTouchPosition(touchDown);
   }
 
@@ -99,7 +102,7 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
         <SlidesList />
         <Dots />
       </SliderContext.Provider>
-    </div>
+    </div> 
   );
 };
 

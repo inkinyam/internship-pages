@@ -1,8 +1,17 @@
 import "./Phases.scss";
 import Title from "../Title/Title";
 import Slider from '../Slider/Slider';
+import { useInView } from "react-intersection-observer";
 
 const Phases = () => {
+
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true
+  });
+
+  const cardsClassList = inView? 'phases__cards animated': 'phases__cards';
+
   return (
     <section className="phases">
 
@@ -13,7 +22,12 @@ const Phases = () => {
       <div className="phases__content">
         <Title title='Этапы подачи заявок и старт программ'> </Title>
 
-        <div className="phases__cards">
+
+
+        <div ref={ref} className={cardsClassList}>
+        <svg  className='phases__svg'  viewBox="0 0 1303 192" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0 1H1238C1273.35 1 1302 29.6538 1302 65V127C1302 162.346 1273.35 191 1238 191H0" />
+        </svg>
           <div className="phases__card phases_active">
             <div className="phases__dot-box">
               <div className="phases__dot"></div>
