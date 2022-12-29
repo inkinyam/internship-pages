@@ -16,7 +16,8 @@ export const SliderContext = React.createContext();
 const Slider = ({autoPlay, autoPlayTime, width, height}) => {
   const [items, setItems] = React.useState([]);
   const [slide, setSlide] = React.useState(0);
-  const [touchPosition, setTouchPosition] = React.useState(null)
+  const [touchPosition, setTouchPosition] = React.useState(null);
+  const [mousePosition, setMousePosition] = React.useState(null);
 
  React.useEffect(() => {
     const loadData = async () => {
@@ -69,6 +70,31 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
     setTouchPosition(null);
   }
 
+/*   const habdleMouseStart = (e) => {
+    const mousDown = e.clientX;
+    setMousePosition(mousDown);
+  }
+
+
+  const handlMouseMove = (e) => {
+    if (mousePosition === null) {
+      return;
+    }
+
+    const currentPosition = e.сlientX;
+    const direction = mousePosition - currentPosition;
+
+    if (direction > 10) {
+      changeSlide(1);
+    }
+
+    if (direction < -10) {
+      changeSlide(-1);
+    }
+
+    setTouchPosition(null);
+  }
+ */
   React.useEffect(() => {
     if (!autoPlay) return;
 
@@ -86,8 +112,10 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
     <div
       style={{ width, height }}
       className="slider"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
+      onTouchStart = {handleTouchStart}
+      onTouchMove  = {handleTouchMove}
+ /*      onMouseDown  = {habdleMouseStart}
+      onMouseMove  = {handlMouseMove} */
     >
       <SliderContext.Provider
         value={{

@@ -11,18 +11,19 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
   });
 
 
-  const [isValid, setIsValid]     = React.useState(false);
+  
+  const [isValid, setIsValid]     = React.useState(true);
   const inputControl              = useInputValidator();
   const { name, surname, institute, speciality, year, email, portfolioLink } = inputControl.errors;
-
 
   React.useEffect(() => {
     setIsValid(inputControl.isValid)
   }, [ inputControl.isValid]);
 
 
-  const handleSubmitForm = () => {
-    onSubmit();
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+ /*    onSubmit(); */
   }
 
 
@@ -55,8 +56,7 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
 
 
       <div className='form__container'>
-
-        <form className='form__form'>
+        <form className='form__form' noValidate>
           <h4 className='form__title'>Подать заявку на практику</h4>
           <fieldset className='form__fieldset'>
             <span className='form__text'>Я,</span>
@@ -186,7 +186,7 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
-                      /* pattern     = "/^https?:\/\/(www)?[0-9a-z\-._~:/?#[\]@!$&'()*+,;=]+#?$/i" */
+                    /*   pattern     = "/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi" */
                       value       = {inputControl?.values?.portfolioLink  || ''}
                       onChange    = {inputControl.handleChange}
                       name        = "portfolioLink"
@@ -196,11 +196,12 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
             </fieldset>
 
           <motion.button type         = "submit"  
-                         whileTap     = {{ scale: 0.97 }}
                          className    = {`form__button ${(!isValid && 'form__button_disabled')}`}
                          onMouseEnter = {onButtonHoverCursor} 
                          onMouseLeave = {onCursorLeave}
                          onSubmit     = {handleSubmitForm}
+                         disabled     = {!isValid ?? 'disabled'}
+                        
                         />
         </form>
       </div>
