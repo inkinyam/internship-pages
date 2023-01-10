@@ -139,7 +139,7 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
               <span className='form__text'>год обучения</span>
               <label htmlFor='year' className='form__label'>
                 <input className={`form__input ${inputControl?.errors?.year && "form__input_error"}`}
-                      placeholder ='например, архитектура'
+                      placeholder ='например, второй'
                       type        ="text"
                       onMouseEnter={onInputHoverCursor} 
                       onMouseLeave={onCursorLeave}
