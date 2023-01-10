@@ -57,7 +57,10 @@
   color: var(--light-default);
   transition: color 0.2s ease-in-out;
   &:hover {
-    color: var(--dark-disabled);
+    color: var(--accent-hovered);
+  }
+  &:active {
+    color: var(--accent-onclick);
   }
 }
 

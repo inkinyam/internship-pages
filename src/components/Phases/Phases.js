@@ -3,12 +3,24 @@ import Title from "../Title/Title";
 import Slider from '../Slider/Slider';
 import { useInView } from "react-intersection-observer";
 
-const Phases = () => {
+const Phases = ({onCursorLeftArrowEnter, onCursorRightArrowEnter, onCursorDefault}) => {
 
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true
   });
+
+  
+  const onCursorLeftArrowHover = () => {
+    onCursorLeftArrowEnter();
+  }
+  const onCursorRightArrowHover = () => {
+    onCursorRightArrowEnter();
+  }
+  
+  const onCursorLeave = () => {
+    onCursorDefault();
+  }
 
   const cardsClassList = inView? 'phases__cards animated': 'phases__cards';
 
@@ -79,7 +91,10 @@ const Phases = () => {
         <Slider autoPlay      = {false}
                 autoPlayTime  = {5000}
                 width         = {'100%'}
-                height        = {'100%'} />
+                height        = {'100%'} 
+                onCursorLeftArrowEnter  = {onCursorLeftArrowHover} 
+                onCursorRightArrowEnter = {onCursorRightArrowHover} 
+                onCursorDefault         = {onCursorLeave}/>
       </div>
 
     </section>

@@ -13,12 +13,25 @@ import { getImages } from './Utils/imagesApi';
 export const SliderContext = React.createContext();
 
 
-const Slider = ({autoPlay, autoPlayTime, width, height}) => {
+const Slider = ({autoPlay, autoPlayTime, width, height, onCursorLeftArrowEnter, onCursorRightArrowEnter, onCursorDefault}) => {
   const [items, setItems] = React.useState([]);
   const [slide, setSlide] = React.useState(0);
   const [touchPosition, setTouchPosition] = React.useState(null);
   const [mousePosition, setMousePosition] = React.useState(null);
 
+
+  const onCursorLeftArrowHover = () => {
+    onCursorLeftArrowEnter();
+  }
+  const onCursorRightArrowHover = () => {
+    onCursorRightArrowEnter();
+  }
+  
+  const onCursorLeave = () => {
+    onCursorDefault();
+  }
+
+  
  React.useEffect(() => {
     const loadData = async () => {
       const images = await getImages();
@@ -126,7 +139,9 @@ const Slider = ({autoPlay, autoPlayTime, width, height}) => {
           items,
         }}
       >
-        <Arrows /> 
+        <Arrows onCursorLeftArrowEnter  = {onCursorLeftArrowHover} 
+                onCursorRightArrowEnter = {onCursorRightArrowHover} 
+                onCursorDefault         = {onCursorLeave}/> 
         <SlidesList />
         <Dots />
       </SliderContext.Provider>

@@ -13,6 +13,7 @@ import SMI from '../SMI/SMI';
 import FAQ from '../FAQ/FAQ';
 import HowItWas from '../HowItWas/HowItWas';
 import Works from '../Works/Works';
+import Programs from '../Programs/Programs';
 import Form from '../Form/Form';
 import Footer from '../Footer/Footer';
 
@@ -26,6 +27,8 @@ const Main = () => {
   const [cursorVariant, setCursorVariant] = React.useState('default');
   const [isCursorEyeVariant, setCursorEyeVariant] = React.useState(false);
   const [isCursorPensilVariant, setCursorPensilVariant] = React.useState(false);
+  const [isCursorArrowLeft, setCursorArrowLeft] = React.useState(false);
+  const [isCursorArrowRight, setCursorArrowRight] = React.useState(false);
    
   const [mousePosition, setMousePosition] = React.useState({x: 0, y: 0});
 
@@ -79,7 +82,20 @@ const Main = () => {
       borderStyle: 'solid',
       borderWidth: 2,
       borderColor: '#DAE856'
-      
+    },
+    arrowLeft: {
+      x: mousePosition.x -60,
+      y: mousePosition.y -60,
+      width: 100,
+      height: 100,
+      opacity: 0.9,
+    },
+    arrowRight: {
+      x: mousePosition.x -60,
+      y: mousePosition.y -60,
+      width: 100,
+      height: 100,
+      opacity: 0.9,
     }
 
   }
@@ -93,6 +109,8 @@ const Main = () => {
     setCursorVariant('default');
     setCursorEyeVariant(false);
     setCursorPensilVariant(false);
+    setCursorArrowLeft(false);
+    setCursorArrowRight(false);
   }
 
   const onCursorCardEnter = () => {
@@ -105,7 +123,21 @@ const Main = () => {
     setCursorPensilVariant(true);
   }
 
-  const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': isCursorPensilVariant? 'cursor cursor-pensil': 'cursor';
+  const onCursorLeftArrowEnter = () => {
+    setCursorVariant('arrowLeft');
+    setCursorArrowLeft(true);
+  }
+
+  const onCursorRightArrowEnter = () => {
+    setCursorVariant('arrowRight');
+    setCursorArrowRight(true);
+  }
+
+  const cursorClassNames = isCursorEyeVariant ? 'cursor cursor-eye': 
+                           isCursorPensilVariant? 'cursor cursor-pensil': 
+                           isCursorArrowLeft? 'cursor cursor-arrow-left': 
+                           isCursorArrowRight? 'cursor cursor-arrow-right': 
+                           'cursor';
   return (     
     <>  
       <Loader isLoading = {isLoading}/>
@@ -122,7 +154,9 @@ const Main = () => {
 
               <About />
               <Video/>
-              <Phases/>
+              <Phases onCursorLeftArrowEnter  = {onCursorLeftArrowEnter} 
+                      onCursorRightArrowEnter = {onCursorRightArrowEnter} 
+                      onCursorDefault         = {onCursorDefault}/>
             
               <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
                       onCursorDefault     = {onCursorDefault}
@@ -135,13 +169,16 @@ const Main = () => {
               <FAQ onCursorCardEnter = {onCursorCardEnter} 
                     onCursorDefault  = {onCursorDefault}/>     
 
-              <HowItWas/>         
-              <Works />
+              <HowItWas/>    
               <AboutUs onCursorButtonEnter = {onCursorButtonEnter} 
                       onCursorDefault     = {onCursorDefault}
                       isAnimated          = {false}
                       isHasButton         = {false}
-                      text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>
+                      text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>     
+              <Works />
+              <Programs onCursorButtonEnter = {onCursorButtonEnter} 
+                        onCursorDefault     = {onCursorDefault}/>
+              
               <Form onCursorButtonEnter = {onCursorButtonEnter}
                     onCursorInputEnter  = {onCursorInputEnter} 
                     onCursorDefault     = {onCursorDefault}/>

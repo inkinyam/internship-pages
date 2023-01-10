@@ -1,0 +1,11 @@
+.programs {
+  max-width: 90%;
+  width: 100%;
+  margin: 160px auto;
+}
+
+.programs__cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+}

@@ -127,7 +127,7 @@ const MobileNavigation = ({isMobileMenuOpen, handleButtonClick}) => {
 
           <motion.li className="mobileNavigation__item"
                     variants={menuItemVariants}> 
-            <Link to="#programm" 
+            <Link to="programs" 
                   onClick={handleBurgerClick}  
                   smooth={true} 
                   className='mobileNavigation__link'>Программы</Link>  

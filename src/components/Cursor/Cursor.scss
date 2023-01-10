@@ -31,3 +31,20 @@
   background-position: center;
   background-color: transparent;
 }
+
+.cursor-arrow-left {
+  background-image: url(../../images/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-size:  50%;
+  background-position: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.cursor-arrow-right {
+  background-image: url(../../images/arrow-right.svg);
+  transform: rotate(180deg);
+  background-repeat: no-repeat;
+  background-size:  50%;
+  background-position: center;
+  background-color: rgb(255, 255, 255);
+}

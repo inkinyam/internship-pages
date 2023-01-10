@@ -19,8 +19,8 @@ const SliderWrap = ({
            initial        = {{ x: 0 }}
            style          = {{ x }}
            dragConstraints = {{
-             left: -sliderConstraints,
-             right: 0
+              left: -sliderConstraints,
+              right: 0
            }}
           dragTransition   = {{ bounceStiffness, bounceDamping }} >
         {children}
@@ -31,37 +31,40 @@ const SliderWrap = ({
 
 export const DragSlider = ({ children, bounceStiffness = 300,  bounceDamping =20 }) => {
   const ref = useRef();
-  const x = useMotionValue(0);
+  const x   = useMotionValue(0);
 
-  const [sliderWidth, setSliderWidth] = useState(0);
+  const [sliderWidth, setSliderWidth]                 = useState(0);
   const [sliderChildrenWidth, setSliderChildrenWidth] = useState(0);
-  const [sliderConstraints, setSliderConstraints] = useState(0);
+  const [sliderConstraints, setSliderConstraints]     = useState(0);
 
 
 
   useEffect(() => {
     if (!ref && !ref.current) return;
 
+
     const calcSliderChildrenWidth = () => {
       setSliderChildrenWidth(
         ref?.current?.scrollWidth
       );
     };
+
     calcSliderChildrenWidth();
 
     const calcSliderWidth = () => {
       setSliderWidth(ref?.current?.clientWidth);
     };
+
     calcSliderWidth();
-  
+    window.addEventListener("resize", calcSliderWidth);
+
     const calcSliderConstraints = () => {
       setSliderConstraints(sliderChildrenWidth - sliderWidth);
     };
-    calcSliderConstraints();  
 
-    window.addEventListener("resize", calcSliderWidth);
+    calcSliderConstraints();
     window.addEventListener("resize", calcSliderConstraints);
-  }, [ref, sliderChildrenWidth, sliderWidth]);
+  }/*,  [ref, sliderChildrenWidth, sliderWidth] */);
 
   return (
     <SliderWrap

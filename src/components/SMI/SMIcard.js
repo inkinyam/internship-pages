@@ -14,22 +14,24 @@ const SMIcard = ({title, description, picture, tags, link, onCursorCardEnter, on
   }
 
   return (
-    <motion.div className="smicard" 
-                
-                         >
-        <a href={link}
-          onMouseEnter={onCardHoverCursor} 
-          onMouseLeave={onCursorLeave} 
-           target="_blank" 
-           rel="noreferrer" 
-           className='smicard__link'>
-          <img src={picture} alt={title} className="smicard__img"/></a>
-        <h3 className='smicard__title'>
-          <a href={link} 
-            onMouseEnter={onCardHoverCursor} 
-            onMouseLeave={onCursorLeave}
-            target="_blank" 
-            rel="noreferrer" >
+    <motion.div className="smicard" >
+        <a href         = {link}
+           onMouseEnter = {onCardHoverCursor} 
+           onMouseLeave = {onCursorLeave} 
+           target       = "_blank" 
+           rel          = "noreferrer" 
+           className    = 'smicard__link'>
+          <img src = {picture} 
+               alt = {title} 
+               className = "smicard__img"/>
+        </a>
+
+        <h3 className = 'smicard__title'>
+          <a href        = {link} 
+            onMouseEnter = {onCardHoverCursor} 
+            onMouseLeave = {onCursorLeave}
+            target       = "_blank" 
+            rel          = "noreferrer" >
             {title}
           </a>
         </h3>

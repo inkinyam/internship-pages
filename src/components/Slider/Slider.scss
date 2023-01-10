@@ -85,28 +85,12 @@
 
     & .arrow {
       height: 100%;
-      width: 80px;
+      width: 10%;
 
       &:hover {
         cursor: pointer;
       }
 
-      &.left {
-        background-image: url(../../images/arrow_left.png);
-        background-repeat: no-repeat;
-        background-size: 25px;
-        background-position: center;
-        margin-left: 5px;
-
-      }
-
-      &.right {
-        background-image: url(../../images/arrow_right.png);
-        background-repeat: no-repeat;
-        background-size: 25px;
-        background-position: center;
-        margin-right: 5px;
-      }
     }
   }
 }

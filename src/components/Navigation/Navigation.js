@@ -28,7 +28,7 @@ const Navigation = ({onCursorButtonEnter, onCursorDefault}) => {
         <Link to="phases"    smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Сроки и этапы</Link> 
         <Link to="howItWas"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Стажировка 2022</Link> 
         <Link to="howItWas"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Стажировка 2021</Link> 
-        <Link to="#programm" smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Программы</Link> 
+        <Link to="programs"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Программы</Link> 
       </nav>
       </div>
     </section>
