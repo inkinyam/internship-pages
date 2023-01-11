@@ -20,7 +20,7 @@ const SMI = () => {
                         title             = {card.title}
                         description       = {card.description}
                         picture           = {card.image}
-                        tags              = {card.tags}
+                        date              = {card.date}
                         link              = {card.link}
               />)
             })

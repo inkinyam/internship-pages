@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 import withCursor from "../../HOCs/withCursor";
 
 
-const SMIcard = ({title, description, picture, tags, link, ...props}) => {
+const SMIcard = ({title, description, picture, date, link, ...props}) => {
   const { onCursor } = props.context;
 
 
   return (
-    <motion.div className    = "smicard" 
-                onMouseEnter = {() => {onCursor('eye')}}
-                onMouseLeave = {onCursor}>
+    <motion.div className    = "smicard"   >
         <a href         = {link}
            target       = "_blank" 
            rel          = "noreferrer" 
-           className    = 'smicard__link'>
+           className    = 'smicard__link'
+           onMouseEnter = {() => {onCursor('eye')}}
+           onMouseLeave = {onCursor}>
              <img src = {picture} 
                alt = {title} 
                className = "smicard__img"/>
@@ -23,13 +23,18 @@ const SMIcard = ({title, description, picture, tags, link, ...props}) => {
         <h3 className = 'smicard__title'>
           <a href        = {link} 
              target       = "_blank" 
-             rel          = "noreferrer" >
+             rel          = "noreferrer" 
+             onMouseEnter = {() => {onCursor('eye')}}
+             onMouseLeave = {onCursor}>
               {title}
           </a>
         </h3>
-        <p className='smicard__description'>{description}</p>
 
-        <small className='smicard__tags'>{tags}</small>
+        <p className='smicard__description'
+           onMouseEnter = {() => {onCursor('arrows')}}
+           onMouseLeave = {onCursor}>{description}</p>
+
+        <small className='smicard__date'>{date}</small>
     </motion.div>
   )
 }
