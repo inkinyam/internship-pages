@@ -3,8 +3,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInputValidator } from '../../utils/customHooks/useInputValidator';
 import { useInView } from "react-intersection-observer";
+import withCursor from "../../HOCs/withCursor";
 
-const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmit}) => {
+const Form = ({onSubmit, ...props}) => {
+  const { onCursor } = props.context;
+
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true
@@ -26,19 +29,6 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
  /*    onSubmit(); */
   }
 
-
-
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
-  
-  const onInputHoverCursor = () => {
-    onCursorInputEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
 
   const envelopeClassList = inView? 'form__svg animated': 'form__svg';
 
@@ -64,8 +54,6 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
               <input className={`form__input ${inputControl?.errors?.name && "form__input_error"}`}
                      placeholder='имя'
                      type="text"
-                     onMouseEnter={onInputHoverCursor} 
-                     onMouseLeave={onCursorLeave}
                      minLength   = "2" 
                      maxLength   = "100" 
                      required 
@@ -73,7 +61,9 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                      value       = {inputControl?.values?.name || ''}
                      onChange    = {inputControl.handleChange}
                      name        = "name"
-                     id          = "name"/>
+                     id          = "name"
+                     onMouseEnter = {() => {onCursor('pensil')}}
+                     onMouseLeave = {onCursor}/>
               <span className={`form__err ${inputControl?.errors?.name && "form__err_show"}`}>{name}</span>
             </label>
         
@@ -81,8 +71,6 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
               <input className={`form__input ${inputControl?.errors?.surname && "form__input_error"}`}
                      placeholder = 'фамилия'
                      type        = "text"
-                     onMouseEnter= {onInputHoverCursor} 
-                     onMouseLeave= {onCursorLeave}
                      minLength   = "2" 
                      maxLength   = "100" 
                      required 
@@ -90,19 +78,19 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                      value       = {inputControl?.values?.surname|| ''}
                      onChange    = {inputControl.handleChange}
                      name        = "surname"
-                     id          = "surname"/>
+                     id          = "surname"
+                     onMouseEnter = {() => {onCursor('pensil')}}
+                     onMouseLeave = {onCursor}/>
               <span className = {`form__err ${inputControl?.errors?.surname && "form__err_show"}`}>{surname}</span>
             </label>
-            </fieldset>
+          </fieldset>
 
-            <fieldset className='form__fieldset'>
-              <span className='form__text'> мой вуз</span>
-              <label htmlFor='institute' className='form__label'>
-                <input className={`form__input ${inputControl?.errors?.institute && "form__input_error"}`}
+          <fieldset className='form__fieldset'>
+            <span className='form__text'> мой вуз</span>
+            <label htmlFor='institute' className='form__label'>
+              <input className={`form__input ${inputControl?.errors?.institute && "form__input_error"}`}
                       placeholder ='например, МАРХИ'
                       type        ="text"
-                      onMouseEnter={onInputHoverCursor} 
-                      onMouseLeave={onCursorLeave}
                       minLength   = "2" 
                       maxLength   = "255" 
                       required 
@@ -110,99 +98,99 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
                       value       = {inputControl?.values?.institute || '' }
                       onChange    = {inputControl.handleChange}
                       name        = "institute"
-                      id          = "institute"/>
-                <span className={`form__err ${inputControl?.errors?.institute && "form__err_show"}`}>{institute}</span>
-              </label>
-            </fieldset>
+                      id          = "institute"
+                      onMouseEnter = {() => {onCursor('pensil')}}
+                      onMouseLeave = {onCursor}/>
+              <span className={`form__err ${inputControl?.errors?.institute && "form__err_show"}`}>{institute}</span>
+            </label>
+          </fieldset>
 
-            <fieldset className='form__fieldset'>
-              <span className='form__text'>изучаю специальность</span>
-              <label htmlFor='speciality' className='form__label'>
-                <input className={`form__input ${inputControl?.errors?.speciality && "form__input_error"}`}
-                      placeholder ='например, архитектура'
-                      type        ="text"
-                      onMouseEnter={onInputHoverCursor} 
-                      onMouseLeave={onCursorLeave}
-                      minLength   = "2" 
-                      maxLength   = "255" 
-                      required 
-                      pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
-                      value       = {inputControl?.values?.speciality || ''}
-                      onChange    = {inputControl.handleChange}
-                      name        = "speciality"
-                      id          = "speciality"/>
-                <span className={`form__err ${inputControl?.errors?.speciality && "form__err_show"}`}>{speciality}</span>
-              </label>
-            </fieldset>
+          <fieldset className='form__fieldset'>
+            <span className='form__text'>изучаю специальность</span>
+            <label htmlFor='speciality' className='form__label'>
+              <input className={`form__input ${inputControl?.errors?.speciality && "form__input_error"}`}
+                    placeholder ='например, архитектура'
+                    type        ="text"
+                    minLength   = "2" 
+                    maxLength   = "255" 
+                    required 
+                    pattern     = "[A-Za-zА-Яа-яЁё\s-]+"
+                    value       = {inputControl?.values?.speciality || ''}
+                    onChange    = {inputControl.handleChange}
+                    name        = "speciality"
+                    id          = "speciality"
+                    onMouseEnter = {() => {onCursor('pensil')}}
+                    onMouseLeave = {onCursor}/>
+              <span className={`form__err ${inputControl?.errors?.speciality && "form__err_show"}`}>{speciality}</span>
+            </label>
+          </fieldset>
 
-            <fieldset className='form__fieldset'>
-              <span className='form__text'>год обучения</span>
-              <label htmlFor='year' className='form__label'>
-                <input className={`form__input ${inputControl?.errors?.year && "form__input_error"}`}
-                      placeholder ='например, второй'
-                      type        ="text"
-                      onMouseEnter={onInputHoverCursor} 
-                      onMouseLeave={onCursorLeave}
-                      minLength   = "2" 
-                      maxLength   = "255" 
-                      required 
-                      pattern     = "[A-Za-zА-Яа-яЁё1-9\s-]+"
-                      value       = {inputControl?.values?.year || ''}
-                      onChange    = {inputControl.handleChange}
-                      name        = "year"
-                      id          = "year"/>
-                <span className={`form__err ${inputControl?.errors?.year && "form__err_show"}`}>{year}</span>
-              </label>
-            </fieldset>
+          <fieldset className='form__fieldset'>
+            <span className='form__text'>курс</span>
+            <label htmlFor='year' className='form__label'>
+              <input className={`form__input ${inputControl?.errors?.year && "form__input_error"}`}
+                    placeholder ='например, 2'
+                    type        ="text"
+                    minLength   = "1" 
+                    maxLength   = "5" 
+                    required 
+                    pattern     = "[1-9]+"
+                    value       = {inputControl?.values?.year || ''}
+                    onChange    = {inputControl.handleChange}
+                    name        = "year"
+                    id          = "year"
+                    onMouseEnter = {() => {onCursor('pensil')}}
+                    onMouseLeave = {onCursor}/>
+              <span className={`form__err ${inputControl?.errors?.year && "form__err_show"}`}>{year}</span>
+            </label>
+          </fieldset>
 
-            <fieldset className='form__fieldset'>
-              <span className='form__text'>контакты для обратной связи</span>
-              <label htmlFor='email' className='form__label'>
-                <input className={`form__input ${inputControl?.errors?.email && "form__input_error"}`}
-                      placeholder ='e-mail'
-                      type        ="email"
-                      onMouseEnter={onInputHoverCursor} 
-                      onMouseLeave={onCursorLeave}
-                      minLength   = "2" 
-                      maxLength   = "255" 
-                      required 
-                      pattern     = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                      value       = {inputControl?.values?.email || ''}
-                      onChange    = {inputControl.handleChange}
-                      name        = "email"
-                      id          = "email"/>
-                <span className={`form__err ${inputControl?.errors?.email && "form__err_show"}`}>{email}</span>
-              </label>
-            </fieldset>
+          <fieldset className='form__fieldset'>
+            <span className='form__text'>контакты для обратной связи</span>
+            <label htmlFor='email' className='form__label'>
+              <input className={`form__input ${inputControl?.errors?.email && "form__input_error"}`}
+                    placeholder ='e-mail'
+                    type        ="email"
+                    minLength   = "2" 
+                    maxLength   = "255" 
+                    required 
+                    pattern     = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                    value       = {inputControl?.values?.email || ''}
+                    onChange    = {inputControl.handleChange}
+                    name        = "email"
+                    id          = "email"
+                    onMouseEnter = {() => {onCursor('pensil')}}
+                    onMouseLeave = {onCursor}/>
+              <span className={`form__err ${inputControl?.errors?.email && "form__err_show"}`}>{email}</span>
+            </label>
+          </fieldset>
 
-            <fieldset className='form__fieldset'>
-              <span className='form__text'>мое портфолио</span>
-              <label htmlFor='portfolioLink' className='form__label'>
-                <input className = {`form__input ${inputControl?.errors?.portfolioLink && "form__input_error"}`}
-                      placeholder ='ссылка на портфолио'
-                      type        ="text"
-                      onMouseEnter={onInputHoverCursor} 
-                      onMouseLeave={onCursorLeave}
-                      minLength   = "2" 
-                      maxLength   = "255" 
-                      required 
-                    /*   pattern     = "/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi" */
-                      value       = {inputControl?.values?.portfolioLink  || ''}
-                      onChange    = {inputControl.handleChange}
-                      name        = "portfolioLink"
-                      id          = "portfolioLink"/>
-                <span className = {`form__err ${inputControl?.errors?.portfolioLink && "form__err_show"}`}>{portfolioLink}</span>
-              </label>
-            </fieldset>
+          <fieldset className='form__fieldset'>
+            <span className='form__text'>мое портфолио</span>
+            <label htmlFor='portfolioLink' className='form__label'>
+              <input className = {`form__input ${inputControl?.errors?.portfolioLink && "form__input_error"}`}
+                    placeholder ='ссылка на портфолио'
+                    type        ="text"
+                    minLength   = "2" 
+                    maxLength   = "255" 
+                    required 
+                  /*   pattern     = "/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi" */
+                    value       = {inputControl?.values?.portfolioLink  || ''}
+                    onChange    = {inputControl.handleChange}
+                    name        = "portfolioLink"
+                    id          = "portfolioLink"
+                    onMouseEnter = {() => {onCursor('pensil')}}
+                    onMouseLeave = {onCursor}/>
+              <span className = {`form__err ${inputControl?.errors?.portfolioLink && "form__err_show"}`}>{portfolioLink}</span>
+            </label>
+          </fieldset>
 
           <motion.button type         = "submit"  
                          className    = {`form__button ${(!isValid && 'form__button_disabled')}`}
-                         onMouseEnter = {onButtonHoverCursor} 
-                         onMouseLeave = {onCursorLeave}
                          onSubmit     = {handleSubmitForm}
-                         disabled     = {!isValid ?? 'disabled'}
-                        
-                        />
+                         onMouseEnter = {() => {onCursor('big')}}
+                         onMouseLeave = {onCursor}
+                       /*   disabled     = {!isValid ?? 'disabled'} */  />
         </form>
       </div>
 
@@ -210,4 +198,4 @@ const Form = ({onCursorButtonEnter, onCursorInputEnter, onCursorDefault, onSubmi
   )
 }
 
-export default Form;
+export default withCursor(Form);

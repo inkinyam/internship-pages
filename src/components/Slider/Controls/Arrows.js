@@ -1,34 +1,22 @@
 import React from "react";
 import { SliderContext } from "../Slider";
+import withCursor from "../../../HOCs/withCursor";
 
-const Arrows = ({onCursorLeftArrowEnter, onCursorRightArrowEnter, onCursorDefault}) => {
+const Arrows = props => {
+  const { onCursor } = props.context;
   const { changeSlide } = React.useContext(SliderContext);
-
-  const onCursorLeftArrowHover = () => {
-    onCursorLeftArrowEnter();
-  }
-  const onCursorRightArrowHover = () => {
-    onCursorRightArrowEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
-
 
   return (
     <div className="arrows">
       <div className="arrow left" 
            onClick={() => changeSlide(-1)} 
-           onMouseEnter = {onCursorLeftArrowHover}
-           onMouseLeave = {onCursorLeave}/>
+           onMouseEnter = {() => onCursor('left')} onMouseLeave = {onCursor}/>
            
       <div className="arrow right" 
-           onClick={() => changeSlide(1)} 
-           onMouseEnter = {onCursorRightArrowHover}
-           onMouseLeave = {onCursorLeave}/>
+           onClick={() => changeSlide(1)}  
+           onMouseEnter = {() => onCursor('right')} onMouseLeave = {onCursor}/>
     </div>
   );
 }
 
-export default Arrows;
+export default withCursor(Arrows);

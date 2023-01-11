@@ -1,38 +1,34 @@
 import "./Navigation.scss";
 import { Link } from 'react-scroll';
 import logo from '../../images/logo.svg';
+import withCursor from "../../HOCs/withCursor";
 
 
 
-
-const Navigation = ({onCursorButtonEnter, onCursorDefault}) => {
-
-
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
+const Navigation = props => {
+  const { onCursor } = props.context;
   
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
-
-
-  return (
-    <section className="navigation">
-      <div className="navigation__container">
-        <a href='https://genplanmos.ru/' target="_blank" rel="noreferrer" className="navigation__logo " onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> 
-          <img src={logo} alt="логотип"/>
+ return (
+    <section className = "navigation">
+      <div className = "navigation__container">
+        <a href      = 'https://genplanmos.ru/' 
+           target    = "_blank" 
+           rel       = "noreferrer" 
+           className = "navigation__logo"
+           onMouseEnter = {() => onCursor('big')} 
+           onMouseLeave = {onCursor} > 
+             <img src={logo} alt="логотип"/>
         </a>
         <nav className="navigation__list">
-        <Link to="about"     smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Как проходит</Link> 
-        <Link to="phases"    smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Сроки и этапы</Link> 
-        <Link to="howItWas"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Стажировка 2022</Link> 
-        <Link to="howItWas"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Стажировка 2021</Link> 
-        <Link to="programs"  smooth={true}  className='navigation__link' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}>Программы</Link> 
+        <Link to="about"     smooth={true} onMouseEnter = {() => onCursor('big')} onMouseLeave = {onCursor} className='navigation__link' >Как проходит</Link> 
+        <Link to="phases"    smooth={true} onMouseEnter = {() => onCursor('big')} onMouseLeave = {onCursor} className='navigation__link' >Сроки и этапы</Link> 
+        <Link to="howItWas"  smooth={true} onMouseEnter = {() => onCursor('big')} onMouseLeave = {onCursor} className='navigation__link' >Стажировка 2022</Link> 
+        <Link to="howItWas"  smooth={true} onMouseEnter = {() => onCursor('big')} onMouseLeave = {onCursor} className='navigation__link' >Стажировка 2021</Link> 
+        <Link to="programs"  smooth={true} onMouseEnter = {() => onCursor('big')} onMouseLeave = {onCursor} className='navigation__link' >Программы</Link> 
       </nav>
       </div>
     </section>
   )
 }
 
-export default Navigation;
+export default withCursor(Navigation);

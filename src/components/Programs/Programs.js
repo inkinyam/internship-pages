@@ -4,15 +4,8 @@ import Program from './Program';
 
 import { programsData } from '../../utils/cardInfo';
 
-const Programs = ({onCursorButtonEnter, onCursorDefault}) => {
+const Programs = () => {
   
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
   return (
   <>
     <section className='programs'>
@@ -29,8 +22,6 @@ const Programs = ({onCursorButtonEnter, onCursorDefault}) => {
                          curatorInfo  = {item.curatorInfo} 
                          description  = {item.description} 
                          result       = {item.result} 
-                         onCursorButtonEnter = {onButtonHoverCursor} 
-                         onCursorDefault = {onCursorLeave}
                          />
               )
             })

@@ -7,7 +7,7 @@ import { SMIdata } from '../../utils/cardInfo';
 
 
 
-const SMI = ({onCursorCardEnter, onCursorDefault}) => {
+const SMI = () => {
 
   return (
     <section className='smi'>
@@ -22,8 +22,6 @@ const SMI = ({onCursorCardEnter, onCursorDefault}) => {
                         picture           = {card.image}
                         tags              = {card.tags}
                         link              = {card.link}
-                        onCursorCardEnter = {onCursorCardEnter} 
-                        onCursorDefault   = {onCursorDefault}
               />)
             })
         }

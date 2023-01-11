@@ -2,18 +2,13 @@ import './FAQCard.scss';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
+import withCursor from "../../HOCs/withCursor";
 
-const FAQCard = ({question, answer, onCursorCardEnter, onCursorDefault}) => {
+
+const FAQCard = ({question, answer, ...props}) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  
-  const onCardHoverCursor = () => {
-   isOpen ? onCursorDefault(): onCursorCardEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
- 
+  const { onCursor } = props.context;
+
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true
@@ -21,12 +16,13 @@ const FAQCard = ({question, answer, onCursorCardEnter, onCursorDefault}) => {
 
   const FAQcardClassList = inView? 'faq__card animated' : 'faq__card '
 
+
   return (
   <motion.div ref={ref} className = {FAQcardClassList}
               animate   = {isOpen ? "open" : "closed"}
-              onClick = {() => {setIsOpen(!isOpen)}}
-              onMouseEnter={onCardHoverCursor} 
-              onMouseLeave={onCursorLeave}>
+              onClick = {() => {setIsOpen(!isOpen) }}
+              onMouseEnter = {() => {onCursor('eye')}}
+              onMouseLeave = {onCursor}>
 
     <h4 className='faq__title '>{question}</h4>
 
@@ -61,4 +57,4 @@ const FAQCard = ({question, answer, onCursorCardEnter, onCursorDefault}) => {
   )
 }
 
-export default FAQCard;
+export default withCursor(FAQCard);

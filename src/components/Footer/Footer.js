@@ -1,16 +1,9 @@
 import './Footer.scss';
 import { Link } from 'react-router-dom';
+import withCursor from "../../HOCs/withCursor";
 
-const Footer = ({onCursorButtonEnter, onCursorDefault}) => {
-
-
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
+const Footer = props => {
+  const { onCursor } = props.context;
 
  return (
   <footer className='footer'>
@@ -19,13 +12,14 @@ const Footer = ({onCursorButtonEnter, onCursorDefault}) => {
         <h4 className='footer__title'>© 2022 Институт Генплана Москвы</h4>
         <Link className='footer__link' 
               to='#'
-              onMouseEnter={onButtonHoverCursor} 
-              onMouseLeave={onCursorLeave}>
+              onMouseEnter = {() => {onCursor('big')}}
+              onMouseLeave = {onCursor}>
                 Политика обработки персональных данных</Link>
+
         <Link className='footer__link' 
               to='#'
-              onMouseEnter={onButtonHoverCursor} 
-              onMouseLeave={onCursorLeave}>
+              onMouseEnter = {() => {onCursor('big')}}
+              onMouseLeave = {onCursor}>
                 Пользовательское соглашение</Link>
       </div>
 
@@ -40,13 +34,13 @@ const Footer = ({onCursorButtonEnter, onCursorDefault}) => {
         <div className='footer__links'>
           <Link className='footer__link' 
               to='#'
-              onMouseEnter={onButtonHoverCursor} 
-              onMouseLeave={onCursorLeave}>
+              onMouseEnter = {() => {onCursor('big')}}
+              onMouseLeave = {onCursor}>
                 Telegram</Link>
           <Link className='footer__link' 
               to='#'
-              onMouseEnter={onButtonHoverCursor} 
-              onMouseLeave={onCursorLeave}>
+              onMouseEnter = {() => {onCursor('big')}}
+              onMouseLeave = {onCursor}>
                 Vkontakte</Link>  
         </div>
       </div>
@@ -55,4 +49,4 @@ const Footer = ({onCursorButtonEnter, onCursorDefault}) => {
  )
 }
 
-export default Footer;
+export default withCursor(Footer);

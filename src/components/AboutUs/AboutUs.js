@@ -1,23 +1,17 @@
 import "./AboutUs.scss";
-
+import withCursor from "../../HOCs/withCursor";
 import SmileyBackground from "../SmileyBackground/SmileyBackground";
 import React from "react";
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 
-const AboutUs = ({onCursorButtonEnter, onCursorDefault, isAnimated, isHasButton, text}) => {
+const AboutUs = ({isAnimated, isHasButton, text, ...props}) => {
+  const { onCursor } = props.context;
 
   const { ref, inView } = useInView({
     threshold: 0.9,
   });
 
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
 
   const buttonClassList = isHasButton? "aboutUs__button" :"aboutUs__button aboutUs__button_hide"; 
   const textClassNames = inView? 'aboutUs__text animated': 'aboutUs__text';
@@ -36,9 +30,9 @@ const AboutUs = ({onCursorButtonEnter, onCursorDefault, isAnimated, isHasButton,
     </div>
     <Link className={buttonClassList} 
           to="form" 
-          smooth={true} 
-          onMouseEnter={onButtonHoverCursor} 
-          onMouseLeave={onCursorLeave}> 
+          smooth={true}  
+          onMouseEnter = {() => onCursor('big')} 
+          onMouseLeave = {onCursor}> 
         Заполнить заявку
     </Link>
     { isAnimated? <SmileyBackground/>: ''}
@@ -48,4 +42,4 @@ const AboutUs = ({onCursorButtonEnter, onCursorDefault, isAnimated, isHasButton,
 
 }
 
-export default AboutUs;
+export default withCursor(AboutUs);

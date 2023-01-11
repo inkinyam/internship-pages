@@ -1,17 +1,10 @@
 import './Lead.scss';
 import React from 'react';
 import { Link } from 'react-scroll';
+import withCursor from "../../HOCs/withCursor";
 
-
-const Lead = ({onCursorButtonEnter, onCursorDefault, isLeadHide}) => {
-
-const onButtonHoverCursor = () => {
-  onCursorButtonEnter();
-}
-
-const onCursorLeave = () => {
-  onCursorDefault();
-}
+const Lead = ({isLeadHide, ...props}) => {
+  const { onCursor } = props.context;
 
 const leadClassList  = isLeadHide? 'lead_hide': 'lead';
 
@@ -24,11 +17,17 @@ const leadClassList  = isLeadHide? 'lead_hide': 'lead';
             <span>
               <p>в&nbsp;Институте</p>
               <p>Генплана</p>   
-              <p>Москвы <Link smooth={true}  to="form" className='lead__button' onMouseEnter={onButtonHoverCursor} onMouseLeave={onCursorLeave}> Заполнить заявку</Link></p>
+              <p>Москвы 
+                <Link smooth={true}  
+                      to="form" 
+                      className='lead__button'  
+                      onMouseEnter = {() => onCursor('big')} 
+                      onMouseLeave = {onCursor}> 
+                        Заполнить заявку
+                </Link>
+              </p>
             </span>
           </div>
-          
-
       
         <div className="lead__startpoint"></div>
 
@@ -46,4 +45,4 @@ const leadClassList  = isLeadHide? 'lead_hide': 'lead';
   )
 }
 
-export default Lead;
+export default withCursor(Lead);

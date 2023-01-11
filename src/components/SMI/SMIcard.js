@@ -1,38 +1,30 @@
 import './SMIcard.scss';
 import { motion } from 'framer-motion';
+import withCursor from "../../HOCs/withCursor";
 
 
+const SMIcard = ({title, description, picture, tags, link, ...props}) => {
+  const { onCursor } = props.context;
 
-const SMIcard = ({title, description, picture, tags, link, onCursorCardEnter, onCursorDefault}) => {
-
-  const onCardHoverCursor = () => {
-    onCursorCardEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
 
   return (
-    <motion.div className="smicard" >
+    <motion.div className    = "smicard" 
+                onMouseEnter = {() => {onCursor('eye')}}
+                onMouseLeave = {onCursor}>
         <a href         = {link}
-           onMouseEnter = {onCardHoverCursor} 
-           onMouseLeave = {onCursorLeave} 
            target       = "_blank" 
            rel          = "noreferrer" 
            className    = 'smicard__link'>
-          <img src = {picture} 
+             <img src = {picture} 
                alt = {title} 
                className = "smicard__img"/>
         </a>
 
         <h3 className = 'smicard__title'>
           <a href        = {link} 
-            onMouseEnter = {onCardHoverCursor} 
-            onMouseLeave = {onCursorLeave}
-            target       = "_blank" 
-            rel          = "noreferrer" >
-            {title}
+             target       = "_blank" 
+             rel          = "noreferrer" >
+              {title}
           </a>
         </h3>
         <p className='smicard__description'>{description}</p>
@@ -43,5 +35,5 @@ const SMIcard = ({title, description, picture, tags, link, onCursorCardEnter, on
 }
 
 
-export default SMIcard;
+export default withCursor(SMIcard);
 

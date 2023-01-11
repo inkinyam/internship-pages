@@ -1,14 +1,18 @@
 .cursor {
-  height: 24px;
   width: 24px;
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
+  height: 24px;
   mix-blend-mode: difference;
   background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 999999999;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
   pointer-events: none;
+  transition: background-color 0.2s, 
+              /* border-color 0.2s,  */
+              background-image 0.3s, 
+              width 0.15s cubic-bezier(.58,-0.46,.5,1.37), 
+              height 0.15s cubic-bezier(.58,-0.46,.5,1.37);
 
   @media screen and (max-width: 1000px){
     display: none;
@@ -16,33 +20,52 @@
   }
 }
 
+.cursor-big {
+  height: 100px;
+  width: 100px;
+}
+
 .cursor-eye {
+  height: 90px;
+  width: 90px;
   background-image: url(../../images/eye.svg);
   background-repeat: no-repeat;
   background-size:  80%;
   background-position: center;
   background-color: transparent;
+  border-width: 3px;
+  border-style: solid;
+  color: #DAE856;
 }
 
 .cursor-pensil {
+  height: 40px;
+  width: 40px;
   background-image: url(../../images/pensil.svg);
   background-repeat: no-repeat;
   background-size:  50%;
   background-position: center;
   background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  color: #DAE856;
 }
 
-.cursor-arrow-left {
+.cursor-left {
+  height: 100px;
+  width: 100px;
   background-image: url(../../images/arrow-left.svg);
   background-repeat: no-repeat;
   background-size:  50%;
   background-position: center;
   background-color: rgb(255, 255, 255);
+
 }
 
-.cursor-arrow-right {
+.cursor-right {
+  height: 100px;
+  width: 100px;
   background-image: url(../../images/arrow-right.svg);
-  transform: rotate(180deg);
   background-repeat: no-repeat;
   background-size:  50%;
   background-position: center;

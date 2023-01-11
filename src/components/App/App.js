@@ -4,20 +4,23 @@ import { Route, Routes} from 'react-router-dom';
 import Main from '../Main/Main';
 import NotFound from '../NotFound/NotFound';
 
-
+import CursorProvider from '../../Providers/cursorProvider';
 
 function App() {
  
 
   return (
-    <div className="App">
+    <CursorProvider>
+      <div className="App">
 
-    <Routes>
-      <Route path = "*" element  = {<NotFound />} />
-      <Route path="/" element={<Main />} />
+      <Routes>
+        <Route path = "*" element  = {<NotFound />} />
+        <Route path="/" element={<Main />} />
 
-    </Routes>
-    </div>
+      </Routes>
+      </div>
+
+    </CursorProvider>
   );
 }
 

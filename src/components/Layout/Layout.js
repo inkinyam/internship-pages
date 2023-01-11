@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 
 
-const Layout = ({onCursorButtonEnter, onCursorDefault}) => {
+const Layout = () => {
   const [isLeadHide, setIsLeadHide] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -25,15 +25,12 @@ const Layout = ({onCursorButtonEnter, onCursorDefault}) => {
         <div className='layout__middle r4'></div>
         <div className='layout__small'></div>
       </div>
-      <Navigation onCursorButtonEnter = {onCursorButtonEnter} 
-                  onCursorDefault     = {onCursorDefault}/> 
+      <Navigation/> 
 
       <MobileNavigation isMobileMenuOpen = {isMobileMenuOpen}
                         handleButtonClick = {handleBurgerClick}/>
                         
-      <Lead onCursorButtonEnter = {onCursorButtonEnter} 
-            onCursorDefault     = {onCursorDefault}
-            isLeadHide          = {isLeadHide}/> 
+      <Lead  isLeadHide          = {isLeadHide}/> 
       
       
     </div>

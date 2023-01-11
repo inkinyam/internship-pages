@@ -6,7 +6,7 @@ import FAQCard from '../FAQCard/FAQCard';
 
 import { FAQCardData } from '../../utils/cardInfo';
 
-const FAQ = ({onCursorCardEnter, onCursorDefault}) => {
+const FAQ = () => {
  
   return (
     <section className='faq'>
@@ -17,9 +17,7 @@ const FAQ = ({onCursorCardEnter, onCursorDefault}) => {
               return (
                 <FAQCard key      = {item.id}
                          question = {item.question}
-                         answer   = {item.answer} 
-                         onCursorCardEnter = {onCursorCardEnter} 
-                         onCursorDefault  = {onCursorDefault}/>
+                         answer   = {item.answer} />
               )
             })
           }

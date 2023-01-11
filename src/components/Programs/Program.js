@@ -1,20 +1,16 @@
 import { Link } from 'react-scroll';
 import './Program.scss';
 import { useInView } from "react-intersection-observer";
+import withCursor from "../../HOCs/withCursor";
 
-const Program = ({title, curator, curatorPhoto, curatorInfo, description, result, onCursorButtonEnter, onCursorDefault}) => {
+
+const Program = ({title, curator, curatorPhoto, curatorInfo, description, result, ...props}) => {
+  const { onCursor } = props.context;
+
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true
   });
-
-  const onButtonHoverCursor = () => {
-    onCursorButtonEnter();
-  }
-  
-  const onCursorLeave = () => {
-    onCursorDefault();
-  }
 
   const programClassList = inView? 'program animated': 'program';
 
@@ -38,8 +34,8 @@ const Program = ({title, curator, curatorPhoto, curatorInfo, description, result
           <Link  to="form"  
                  smooth={true}  
                  className="program__button"
-                 onMouseEnter={onButtonHoverCursor} 
-                 onMouseLeave={onCursorLeave}>
+                 onMouseEnter = {() => onCursor('big')} 
+                 onMouseLeave = {onCursor}>
                  Заполнить заявку</Link>
         </div>
         
@@ -48,4 +44,4 @@ const Program = ({title, curator, curatorPhoto, curatorInfo, description, result
   )
 }
 
-export default Program;
+export default withCursor(Program);
