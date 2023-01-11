@@ -38,12 +38,32 @@
   align-items: center;
   text-transform: uppercase;
   margin: 16px 0 40px;
+
+  
+  @media screen and (max-width: 960px) {
+    margin: 40px 0 55px;
+  }
+
+  @media screen and (max-width: 550px) {
+    margin: 40px 0 32px;
+  }
 }
 
 .program__card{
   display: flex;
   flex-direction: row;
   column-gap: 46px;
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+    row-gap: 16px;
+    box-sizing: border-box;
+    padding-right: 24px;
+  }
+
+  @media screen and (max-width: 550px) {
+    padding-right: 18px;
+  }
 }
 
 .program__curatorInfo {
@@ -68,6 +88,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 550px) {
+    margin: 24px 0 ;
+
+    .program__tag {
+      display: none;
+    }
+  }
 }
 
 .program__curator {
@@ -105,6 +133,10 @@
   text-transform: uppercase;
   text-align: right;
   margin: 24px 0;
+
+  @media screen and (max-width: 550px) {
+    text-align: start;
+  }
 }
 
 
@@ -116,6 +148,10 @@
   box-sizing: border-box;
   padding-right: 24px;
   max-width: 100%;
+
+  @media screen and (max-width: 960px) {
+    padding-right: 0;
+  }
 }
 
 .program__button {

@@ -1,4 +1,4 @@
-const datacard1 = [
+const AboutCardData = [
   { id: 1,
     title: 'Кого ждем',
     description: 'Ждем студентов специальностей: Архитектор, Инженер, Экономист, Социолог, Эколог, Аналитик, ГИС-специалист, Урбанист.',
@@ -48,7 +48,7 @@ const FAQCardData = [
   }
 ]
 
-const SMIdata = [
+const SMICardData = [
   { id: 1,
     title: 'ARCHI.RU',
     description: 'Летняя практика Института Генплана была посвящена Новой Москве. Всего получилось 4 проекта с совершенно разной оптикой: от масштаба агломерации до вполне конкретных предложений, которые можно было, обдумав, и реализовать. Рассказываем обо всех.',
@@ -130,52 +130,40 @@ const SMIdata = [
   },
 ]
 
-
-const sliderInfo = [
+const PhasesData = [
   { id: 1,
-    title: 'Тест 1',
-    url: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
+    active: true,
+    title: 'первый этап',
+    description: 'Прием заявок от участников на конкурс портфолио',
   },
   { id: 2,
-    title: 'Тест 2',
-    url: 'https://images.unsplash.com/photo-1498673394965-85cb14905c89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    active: false,
+    title: 'второй этап',
+    description: 'Объявление итогов конкурса портфолио',
   },
   { id: 3,
-    title: 'Тест 3 ',
-    url: 'https://images.unsplash.com/photo-1577046848358-4623c0859b8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    active: false,
+    title: 'третий этап',
+    description: 'Старт программ стажировок',
   },
   { id: 4,
-    title: 'Тест 4',
-    url: 'https://images.unsplash.com/photo-1546074177-31bfa593f731?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80',
+    active: false,
+    title: 'четвертый этап',
+    description: 'Итоговая защита проектов',
   },
   { id: 5,
-    title: 'Тест 5',
-    url: 'https://images.unsplash.com/photo-1610643781442-ec645d94c89b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    active: false,
+    title: 'пятый этап',
+    description: 'Проверка кураторами проектов',
   },
   { id: 6,
-    title: 'Тест 6',
-    url: 'https://images.unsplash.com/photo-1604537372136-89b3dae196e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
+    active: false,
+    title: 'шестой этап',
+    description: 'Объявление результатов стажировки',
   },
-  { id: 7,
-    title: 'Тест 7',
-    url: 'https://images.unsplash.com/photo-1546272192-c19942fa8b26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
-  },
-  { id: 8,
-    title: 'Тест 8',
-    url: 'https://images.unsplash.com/photo-1608416026650-66b4e0c0c301?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  },
-  { id: 9,
-    title: 'Тест 9',
-    url: 'https://plus.unsplash.com/premium_photo-1665949503006-f82ca4b7e132?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=712&q=80',
-  },
-  { id: 10,
-    title: 'Тест 10',
-    url: 'https://images.unsplash.com/photo-1521478413868-1bbd982fa4a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-  }
-];
+ ]
 
-
-const programsData = [
+const ProgramsData = [
   { id: 1,
     title: 'ПРОГРАММА «ТИНАО В КОНТЕКСТЕ МОСКОВСКОЙ АГЛОМЕРАЦИИ»',
     curator: 'Максим Перов',
@@ -204,5 +192,36 @@ const programsData = [
   },
 ]
 
-export {datacard1, FAQCardData, SMIdata, sliderInfo, programsData};
+const WorksCardData = [
+  { id: 1-1,
+    title: 'Возможности развития Московской агломерации в ТиНАО',
+    description: 'Над проектом работали: Анастасия Данилюк, Данил Петренко, Мария Ожерельева, Александра Козловская, Ирина Чульжанова, Денис Тетюшкин, Артемий Круглов',
+    image: 'https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
+  },
+
+  { id: 2,
+    title: 'Города в городе. Новая Субурбия',
+    description: 'Над проектом работали: Видергольд О.Г., Подольская А.А., Семенова У.Н., Кучук Р.Г.',
+    image: 'https://images.unsplash.com/photo-1670252166693-a7b3f2bee132?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+  },
+
+  { id: 3,
+    title: 'Вороновское - опытное поле ТиНАО',
+    description: 'Лысенко Катерина Стажировка в Институте Генплана Москвы Лето 2022',
+    image: 'https://images.unsplash.com/photo-1670261140885-30ae06e26b2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
+  },
+  
+  { id: 4,
+    title: 'Рассказовка. новые центры притяжения в Новой москве',
+    description: 'Над проектом работали: Емельяненко Катя, Никитина Евгения, Ахметзянова Дина, Македонский Даниил, Хазбулатова Алина, Пан Григорий, Шуляк Екатерина, Василевский Тихон, Дьяченко Дмитрий, Труфакина Олеся, Тулиганов Эмиль.',
+    image: 'https://images.unsplash.com/photo-1664574653790-cee0e10a4242?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+  }
+];
+
+export { AboutCardData, 
+         FAQCardData, 
+         SMICardData, 
+         ProgramsData, 
+         PhasesData, 
+         WorksCardData };
 

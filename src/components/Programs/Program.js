@@ -1,5 +1,5 @@
-import { Link } from 'react-scroll';
 import './Program.scss';
+import { Link } from 'react-scroll';
 import { useInView } from "react-intersection-observer";
 import withCursor from "../../HOCs/withCursor";
 

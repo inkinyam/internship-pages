@@ -1,7 +1,7 @@
 import './Form.scss';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInputValidator } from '../../utils/customHooks/useInputValidator';
+import { useInputValidator } from '../../HOCs/useInputValidator';
 import { useInView } from "react-intersection-observer";
 import withCursor from "../../HOCs/withCursor";
 

@@ -33,35 +33,28 @@ const Main = () => {
 
   return (     
     <>
-          <Loader isLoading = {isLoading}/>
-        <div className={isLoading? 'hide_content': ''}>
-          <main className='main'>
-                <Layout/>
-
-                <About />
-                <Video/>
-                <Phases/>
-              
-                <AboutUs isAnimated          = {true}
-                        isHasButton         = {true}
-                        text='Разрабатываем генеральные планы, проекты планировки, нормативы и градостроительную документацию по всей России. Раз в год проводим стажировку для студентов.'/>
-                <SMI/>
-
-                <FAQ />     
-
-                <HowItWas/>    
-                <AboutUs isAnimated          = {false}
-                        isHasButton         = {false}
-                        text='Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>     
-                <Works />
-                <Programs />
-                
-                <Form />
-
+        <Loader isLoading = {isLoading}/>
+        <div className = {isLoading ? 'hide_content': ''}>
+          <main className = 'main'>
+              <Layout/>
+              <About />
+              <Video/>
+              <Phases/>
+              <AboutUs isAnimated = {true}
+                      isHasButton = {true}
+                      text = 'Разрабатываем генеральные планы, проекты планировки, нормативы и градостроительную документацию по всей России. Раз в год проводим стажировку для студентов.'/>
+              <SMI/>
+              <FAQ />     
+              <HowItWas/>    
+              <AboutUs isAnimated = {false}
+                      isHasButton = {false}
+                      text = 'Основной темой стажировки и практики в 2022 году станет разработка проектов для Новой Москвы.'/>     
+              <Works />
+              <Programs />
+              <Form />
           </main>
           <Footer/>
         </div>
-
     </>
   )
 }

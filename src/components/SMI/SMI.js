@@ -2,7 +2,7 @@ import './SMI.scss';
 import Title from '../Title/Title';
 import SMIcard from './SMIcard';
 import { DragSlider } from '../Drag-slider/Drag-slider';
-import { SMIdata } from '../../utils/cardInfo';
+import { SMICardData } from '../../utils/cardInfo';
 
 
 
@@ -14,7 +14,7 @@ const SMI = () => {
       <Title title='Сми о стажировке'></Title>
    
         <DragSlider>
-        { SMIdata.map(card => {    
+        { SMICardData.map(card => {    
           return  ( 
               <SMIcard  key               = {card.id}
                         title             = {card.title}
